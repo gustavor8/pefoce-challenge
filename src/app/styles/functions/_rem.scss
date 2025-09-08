@@ -1,0 +1,5 @@
+/// @param {Number} $px - px
+/// @param {Number} $base-font-size - Default: 16
+@function rem($px, $base-font-size: 16) {
+  @return calc($px / $base-font-size) * 1rem;
+}

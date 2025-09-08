@@ -1,0 +1,106 @@
+@use "../functions/rem" as *;
+
+// Headline Styles
+$font-headline-h1-weight: 600;
+$font-headline-h1-size: rem(48);
+$font-headline-h1-line-height: rem(58);
+
+$font-headline-h2-weight: 600;
+$font-headline-h2-size: rem(40);
+$font-headline-h2-line-height: rem(48);
+
+$font-headline-h3-weight: 600;
+$font-headline-h3-size: rem(32);
+$font-headline-h3-line-height: rem(38);
+
+$font-headline-h4-weight: 600;
+$font-headline-h4-size: rem(28);
+$font-headline-h4-line-height: rem(34);
+
+$font-headline-h5-weight: 600;
+$font-headline-h5-size: rem(24);
+$font-headline-h5-line-height: rem(28);
+
+// Subtitle Styles
+$font-subtitle-s1-weight: 600;
+$font-subtitle-s1-size: rem(18);
+$font-subtitle-s1-line-height: rem(28);
+
+$font-subtitle-s2-weight: 600;
+$font-subtitle-s2-size: rem(16);
+$font-subtitle-s2-line-height: rem(24);
+
+// Body Styles
+$font-body-b1-weight: 400;
+$font-body-b1-size: rem(16);
+$font-body-b1-line-height: rem(24);
+
+$font-body-b2-weight: 500;
+$font-body-b2-size: rem(16);
+$font-body-b2-line-height: rem(24);
+
+$font-body-b3-weight: 400;
+$font-body-b3-size: rem(14);
+$font-body-b3-line-height: rem(20);
+
+$font-body-b4-weight: 500;
+$font-body-b4-size: rem(14);
+$font-body-b4-line-height: rem(20);
+
+// Caption Styles
+$font-caption-c1-weight: 400;
+$font-caption-c1-size: rem(12);
+$font-caption-c1-line-height: rem(16);
+
+$font-caption-c2-weight: 500;
+$font-caption-c2-size: rem(12);
+$font-caption-c2-line-height: rem(16);
+
+$font-caption-c3-weight: 500;
+$font-caption-c3-size: rem(10);
+$font-caption-c3-line-height: rem(14);
+
+// Label
+$font-label-weight: 500;
+$font-label-size: rem(12);
+$font-label-line-height: rem(16);
+
+// Button Font Sizes
+$font-button-giant-weight: 600;
+$font-button-giant-size: rem(18);
+$font-button-giant-line-height: rem(24);
+
+$font-button-large-weight: 600;
+$font-button-large-size: rem(16);
+$font-button-large-line-height: rem(20);
+
+$font-button-medium-weight: 600;
+$font-button-medium-size: rem(14);
+$font-button-medium-line-height: rem(16);
+
+$font-button-small-weight: 600;
+$font-button-small-size: rem(12);
+$font-button-small-line-height: rem(16);
+
+$font-button-tiny-weight: 600;
+$font-button-tiny-size: rem(10);
+$font-button-tiny-line-height: rem(12);
+
+// Padding Spacing Tokens
+$padding-0: rem(0);
+$padding-1: rem(4);
+$padding-2: rem(8);
+$padding-3: rem(12);
+$padding-4: rem(16);
+$padding-5: rem(20);
+$padding-6: rem(24);
+
+// Shadow Tokens
+$shadow-50: 0 4px 4px -2px rgba(19, 25, 39, 0.10);
+$shadow-100: 0 2px 4px -2px rgba(19, 25, 39, 0.12), 0 4px 4px -2px rgba(19, 25, 39, 0.08);
+$shadow-300: 0 6px 8px -6px rgba(19, 25, 39, 0.12), 0 8px 16px -6px rgba(19, 25, 39, 0.08);
+$shadow-400: 0 6px 12px -6px rgba(19, 25, 39, 0.12), 0 8px 24px -4px rgba(19, 25, 39, 0.08);
+$shadow-500: 0 6px 14px -6px rgba(19, 25, 39, 0.12), 0 10px 32px -4px rgba(19, 25, 39, 0.10);
+$shadow-600: 0 8px 18px -6px rgba(19, 25, 39, 0.12), 0 12px 42px -4px rgba(19, 25, 39, 0.12);
+$shadow-700: 0 8px 22px -6px rgba(19, 25, 39, 0.12), 0 14px 64px -4px rgba(19, 25, 39, 0.12);
+$shadow-800: 0 8px 28px -6px rgba(19, 25, 39, 0.12), 0 18px 88px -4px rgba(19, 25, 39, 0.14);

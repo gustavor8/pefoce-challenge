@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { NgTemplateOutlet } from '@angular/common';
 import { IconComponent } from '../icon/icon.component';
 import { MenuItem, MenuState } from '../menu/menu.types';
-import { MenuService } from '../../../core/services/menu.service';
+import { MenuService } from '../../../core/services/menu/menu.service';
 
 @Component({
   selector: 'app-menu-item',

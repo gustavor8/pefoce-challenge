@@ -1,0 +1,57 @@
+@if (!hasChildren()) {
+<a
+  [routerLink]="item.route"
+  routerLinkActive="active"
+  (click)="handleAction($event)"
+  [target]="item.target || '_self'"
+  [title]="item.label"
+>
+  <ng-container *ngTemplateOutlet="itemContent" />
+</a>
+} @else {
+<button
+  type="button"
+  (click)="handleAction($event)"
+  [title]="item.label"
+  [attr.aria-expanded]="isSubmenuOpen()"
+>
+  <ng-container *ngTemplateOutlet="itemContent" />
+</button>
+}
+
+<ng-template #itemContent>
+  @if(item.icon) {
+  <app-icon [name]="item.icon" [size]="'md'" />
+  }
+
+  <span class="label">{{ item.label }}</span>
+
+  @if(hasChildren()) {
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    viewBox="0 0 16 16"
+    class="chevron"
+    [class.rotated]="isSubmenuOpen()"
+  >
+    <path d="M 3 6 L 13 6 L 8 11 Z" />
+  </svg>
+  }
+</ng-template>
+@if (hasChildren()) {
+<div
+  class="submenu"
+  [class.open]="isSubmenuOpen() && shouldShowExpandedContent()"
+  [class.line-active]="shouldShowBorder()"
+>
+  <ul class="submenu-list">
+    @for (child of item.children; track child.id) {
+    <li>
+      <app-menu-item [item]="child" [depth]="depth + 1" />
+    </li>
+    }
+  </ul>
+</div>
+}

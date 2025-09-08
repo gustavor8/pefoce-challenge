@@ -1,0 +1,7 @@
+@if (isLoading$ | async) {
+<div class="overlay" (click)="preventInteraction($event)">
+  <div class="loading-container">
+    <app-loader />
+  </div>
+</div>
+}

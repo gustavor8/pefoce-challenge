@@ -1,0 +1,46 @@
+@use "../../../styles/functions/rem" as *;
+@use "../../../styles/tokens/colors" as *;
+
+.avatar-container {
+  .avatar {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    background-color: transparent;
+
+    &.rounded-circle {
+      border-radius: 50%;
+    }
+
+    &-xs {
+      height: rem(30);
+      width: rem(30);
+    }
+
+    &-sm {
+      height: rem(40);
+      width: rem(40);
+    }
+
+    &-md {
+      height: rem(60);
+      width: rem(60);
+    }
+
+    &-lg {
+      height: rem(80);
+      width: rem(80);
+    }
+
+    &-xl {
+      height: rem(100);
+      width: rem(100);
+    }
+  }
+
+  .bg-white {
+    background-color: $gray-50;
+    color: $black-700;
+  }
+}

@@ -1,0 +1,15 @@
+<div class="avatar-container" [ngClass]="additionalClasses">
+  <ng-container *ngIf="src; else showIcon">
+    <img [src]="src" [alt]="alt" [ngClass]="[
+        'avatar',
+        'avatar-' + size,
+        'rounded-circle'
+      ]" />
+  </ng-container>
+
+  <ng-template #showIcon>
+    <div class="avatar avatar-{{ size }} rounded-circle bg-white" [attr.title]="alt">
+      <app-icon [name]="'user'" [size]="size" [customTitle]="alt" />
+    </div>
+  </ng-template>
+</div>

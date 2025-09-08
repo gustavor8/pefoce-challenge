@@ -1,0 +1,62 @@
+@if (logoSrc || logoText) {
+<header class="menu-header">
+  @if (logoSrc) {
+  <img
+    [src]="logoSrc"
+    [alt]="logoText || 'Logotipo'"
+    class="menu-logo"
+    [class.animated-logo]="animatedLogo"
+    [style.height.px]="logoSize"
+  />
+  } @if (logoText) {
+  <h2 class="menu-title">{{ logoText }}</h2>
+  }
+</header>
+}
+
+<div class="menu-content">
+  <nav>
+    <ul>
+      @for (item of menuService.menuItems();track item.id) {
+      <li>
+        <app-menu-item [item]="item" [depth]="0" />
+      </li>
+      }
+    </ul>
+  </nav>
+</div>
+
+@if (actionItems && actionItems.length > 0) {
+<footer class="menu-footer">
+  <ul>
+    @for (action of actionItems; track action.id || action.label) {
+    <li>
+      @if (action.route) {
+      <a
+        [routerLink]="action.route"
+        [target]="action.target || '_self'"
+        class="action-item"
+      >
+        @if(action.icon) {
+        <app-icon [name]="action.icon" />
+        }
+        <span class="action-label">{{ action.label }}</span>
+      </a>
+
+      } @else {
+      <button
+        class="action-item"
+        (click)="action.action && action.action()"
+        type="button"
+      >
+        @if(action.icon) {
+        <app-icon [name]="action.icon" />
+        }
+        <span class="action-label">{{ action.label }}</span>
+      </button>
+      }
+    </li>
+    }
+  </ul>
+</footer>
+}

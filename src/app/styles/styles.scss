@@ -1,0 +1,12 @@
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+@font-face {
+  font-family: "Figtree";
+  src: url("../../assets/fonts/Figtree/static/Figtree-SemiBold.ttf")
+    format("truetype");
+}
+
+body,
+* {
+  font-family: "Figtree", sans-serif !important;
+}

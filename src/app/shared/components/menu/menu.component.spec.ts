@@ -7,7 +7,7 @@ import {
 } from '@angular/core/testing';
 import { MenuComponent } from './menu.component';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
-import { MenuService } from '../../../core/services/menu.service';
+import { MenuService } from '../../../core/services/menu/menu.service';
 import { MenuItem, MenuState } from './menu.types';
 import { IconComponent } from '../icon/icon.component';
 

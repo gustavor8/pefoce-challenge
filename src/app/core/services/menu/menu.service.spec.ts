@@ -5,7 +5,7 @@ import {
   MenuItem,
   MenuState,
 } from '../../../shared/components/menu/menu.types';
-import { MenuService } from '../menu.service';
+import { MenuService } from '../menu/menu.service';
 import { Router, NavigationEnd, RouterEvent } from '@angular/router';
 
 const mockRouter = {

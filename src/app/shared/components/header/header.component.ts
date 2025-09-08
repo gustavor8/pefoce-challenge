@@ -8,7 +8,7 @@ import {
   Output,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuService } from '../../../core/services/menu.service';
+import { MenuService } from '../../../core/services/menu/menu.service';
 import { MenuState } from '../menu/menu.types';
 
 export type HeaderBehavior = 'static' | 'fixed' | 'auto-hide';

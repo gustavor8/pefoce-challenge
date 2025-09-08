@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { MenuItemComponent } from '../menu-item/menu-item.component';
 import { ActionItem, MenuItem, MenuState } from './menu.types';
-import { MenuService } from '../../../core/services/menu.service';
+import { MenuService } from '../../../core/services/menu/menu.service';
 import { IconComponent } from '../icon/icon.component';
 import { RouterLink } from '@angular/router';
 

@@ -40,7 +40,8 @@ export const routes: Routes = [
     data: {
       errorCode: '404',
       errorTitle: 'Página não encontrada',
-      errorMessage: 'Ops... Página não localizada.',
+      errorMessage:
+        'Ops... Página não localizada. Parece que vocês buscou algo que não existe no sistema, caso necessário entre em contato!',
       buttonText: 'Voltar ao início',
     },
   },

@@ -1,0 +1,12 @@
+@if (isOpen()) {
+<div
+  #popoverPanel
+  class="popover-panel"
+  role="dialog"
+  [ngStyle]="popoverStyles()"
+  [ngClass]="{ 'is-closing': isClosing() }"
+  [attr.data-placement]="actualPlacement()"
+>
+  <ng-content></ng-content>
+</div>
+}

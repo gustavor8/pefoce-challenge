@@ -1,0 +1,38 @@
+<button
+  class="button"
+  [type]="type"
+  [ngClass]="classes"
+  [disabled]="disabled || loading"
+  (click)="handleClick()"
+>
+  <div class="button__content">
+    @if (icon && iconPosition === 'left') {
+    <app-icon
+      [name]="icon"
+      [size]="'sm'"
+      class="button__icon button__icon--left"
+    ></app-icon>
+    }
+
+    <span>{{ label }}</span>
+
+    @if (icon && iconPosition === 'right') {
+    <app-icon
+      [name]="icon"
+      [size]="'sm'"
+      class="button__icon button__icon--right"
+    ></app-icon>
+    }
+  </div>
+
+  @if (loading) {
+  <div class="button__loader">
+    <app-loader
+      [size]="size === 'lg' ? 'md' : 'sm'"
+      [variant]="
+        variant === 'outline' || variant === 'text' ? 'default' : 'neutral'
+      "
+    ></app-loader>
+  </div>
+  }
+</button>

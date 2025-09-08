@@ -1,0 +1,22 @@
+:host {
+  display: inline-flex;
+  line-height: 1;
+}
+
+i {
+  display: inline-block;
+  font-style: normal;
+  transition: all 0.2s ease;
+
+  &.icon-sm {
+    font-size: 1.2rem;
+  }
+
+  &.icon-md {
+    font-size: 1.4rem;
+  }
+
+  &.icon-lg {
+    font-size: 1.7rem;
+  }
+}

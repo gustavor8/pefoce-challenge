@@ -1,0 +1,118 @@
+@use "../../../styles/tokens/index" as *;
+
+:host {
+  display: block;
+  contain: layout;
+}
+
+button {
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: left;
+}
+
+a,
+button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $gray-50;
+  text-decoration: none;
+  max-height: 3rem;
+  gap: 0.8rem;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    padding 0.3s ease-in-out;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: $padding-3;
+  margin: 0.25rem 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+a:hover,
+a.active {
+  background-color: $primary-50;
+  color: $primary-900;
+}
+
+button:hover {
+  background-color: $primary-50;
+  color: $primary-900;
+}
+
+.label {
+  flex: 1;
+  min-width: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  transition: opacity 0.5s ease-in-out;
+}
+
+:host-context(.collapsed:not(.hover-expanded)) .label {
+  opacity: 0;
+  white-space: nowrap;
+}
+
+.chevron {
+  flex-shrink: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out 0.1s;
+
+  :host-context(.collapsed:not(.hover-expanded)) & {
+    display: none;
+  }
+
+  &.rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.submenu {
+  position: relative;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-in-out;
+
+  &.open {
+    grid-template-rows: 1fr;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.submenu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 1.4rem;
+  padding-left: 0.3rem;
+  overflow: hidden;
+  min-height: 0;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: $gray-600;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.2s ease-in-out;
+  }
+}
+
+.submenu.open.line-active .submenu-list::before {
+  transform: scaleY(1);
+}

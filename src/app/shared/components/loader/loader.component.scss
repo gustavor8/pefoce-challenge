@@ -1,0 +1,100 @@
+@use "../../../styles/tokens/colors" as *;
+
+.spin-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.variant-default {
+    .outer-circle,
+    .line {
+      stroke: $primary-500;
+    }
+    .inner-circle {
+      fill: $primary-500;
+    }
+  }
+
+  &.variant-neutral {
+    .outer-circle,
+    .line {
+      stroke: $neutral-500;
+    }
+    .inner-circle {
+      fill: $neutral-500;
+    }
+  }
+}
+
+.line {
+  stroke-width: 4;
+  fill: none;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawReverse 1.4s infinite cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.line1 {
+  animation-delay: 0;
+}
+.line2 {
+  animation-delay: 0.2s;
+}
+.line3 {
+  animation-delay: 0.4s;
+}
+
+@keyframes drawReverse {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -100;
+  }
+}
+
+.outer-circle,
+.inner-circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  animation: growScale 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.inner-circle.circle-bottom {
+  animation-delay: 0;
+}
+.inner-circle.circle-left {
+  animation-delay: 0.2s;
+}
+.inner-circle.circle-right {
+  animation-delay: 0.4s;
+}
+
+.outer-circle.circle-bottom {
+  animation-delay: 0.1s;
+}
+.outer-circle.circle-left {
+  animation-delay: 0.3s;
+}
+.outer-circle.circle-right {
+  animation-delay: 0.5s;
+}
+
+@keyframes growScale {
+  0% {
+    transform: scale(0) rotate(15deg);
+  }
+  30% {
+    transform: scale(1.05) rotate(-5deg);
+  }
+  60% {
+    transform: scale(0.98) rotate(2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}

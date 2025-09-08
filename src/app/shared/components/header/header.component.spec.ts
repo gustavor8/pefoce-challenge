@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { signal } from '@angular/core';
 import { HeaderComponent, HeaderBehavior } from './header.component';
-import { MenuService } from '../../../core/services/menu.service';
+import { MenuService } from '../../../core/services/menu/menu.service';
 import { MenuState } from '../menu/menu.types';
 
 class MockMenuService {

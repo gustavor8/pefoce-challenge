@@ -1,6 +1,9 @@
 import { computed, effect, inject, Injectable, signal } from '@angular/core';
 
-import { MenuItem, MenuState } from '../../shared/components/menu/menu.types';
+import {
+  MenuItem,
+  MenuState,
+} from '../../../shared/components/menu/menu.types';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 

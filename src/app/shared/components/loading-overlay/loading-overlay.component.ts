@@ -2,7 +2,7 @@ import { CommonModule, AsyncPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoaderComponent } from '../loader/loader.component';
-import { LoadingOverlayService } from '../../../core/services/loading-overlay.service';
+import { LoadingOverlayService } from '../../../core/services/loading/loading-overlay.service';
 
 @Component({
   selector: 'app-loading-overlay',

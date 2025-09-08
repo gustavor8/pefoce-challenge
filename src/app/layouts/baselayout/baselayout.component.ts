@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { MenuComponent } from '../../shared/components/menu/menu.component';
 import { MenuItem, MenuState } from '../../shared/components/menu/menu.types';
 import { HeaderComponent } from '../../shared/components/header/header.component';
-import { MenuService } from '../../core/services/menu.service';
+import { MenuService } from '../../core/services/menu/menu.service';
 import { NgClass } from '@angular/common';
 
 @Component({

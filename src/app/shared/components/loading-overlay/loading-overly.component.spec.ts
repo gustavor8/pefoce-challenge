@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { LoadingOverlayComponent } from './loading-overlay.component';
-import { LoadingOverlayService } from '../../../core/services/loading-overlay.service';
+import { LoadingOverlayService } from '../../../core/services/loading/loading-overlay.service';
 import { LoaderComponent } from '../loader/loader.component';
 
 describe('LoadingOverlayComponent', () => {

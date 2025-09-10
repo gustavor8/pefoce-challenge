@@ -1,0 +1,88 @@
+@use "../../../styles/tokens/colors" as *;
+@use "../../../styles/tokens/variables" as *;
+
+:host {
+  &:focus {
+    outline: none;
+  }
+}
+
+:host(.focused) .checkbox-element {
+  border-color: $primary-500;
+  box-shadow: 0 0 0 2px $primary-200;
+}
+
+:host(.has-error) .checkbox-element {
+  border-color: $red-500;
+}
+
+:host(.has-error.focused) .checkbox-element {
+  border-color: $red-500;
+  box-shadow: 0 0 0 2px $red-100;
+}
+
+:host([data-label-position="before"]) .checkbox-label {
+  margin-left: 0;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+:host(.is-disabled) {
+  opacity: 0.5;
+
+  .checkbox-element,
+  .checkbox-label {
+    cursor: not-allowed;
+  }
+}
+
+.checkbox-element {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 1px solid $gray-500;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+  &.checked,
+  &.indeterminate {
+    background-color: $primary-500;
+    border-color: $primary-500;
+  }
+}
+
+.checkbox-checkmark,
+.checkbox-indeterminate-mark {
+  fill: #fff;
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox-container {
+  display: inline-flex;
+  align-items: center;
+}
+
+.checkbox-label {
+  margin-left: 1rem;
+  user-select: none;
+  cursor: pointer;
+}
+
+.error-message {
+  color: $red-500;
+  font-size: 0.8rem;
+}
+
+.error-container {
+  margin-top: 0.4rem;
+}
+
+.checkbox-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

@@ -1,0 +1,48 @@
+<div class="tabs-container">
+  <div
+    #tabListContainer
+    class="tab-list"
+    role="tablist"
+    [class.align-start]="headerAlignment === 'start'"
+    [class.align-center]="headerAlignment === 'center'"
+    [class.align-end]="headerAlignment === 'end'"
+    aria-label="Navegação por abas"
+    [style.--indicator-width.px]="indicatorWidth()"
+    [style.--indicator-position.px]="indicatorPosition()"
+  >
+    @for (tab of tabs(); track tab.title; let i = $index) {
+    <button
+      #tabButton
+      type="button"
+      [id]="'tab-' + i"
+      role="tab"
+      class="tab-header"
+      [class.active]="tab.isActive()"
+      [disabled]="tab.disabled"
+      [attr.aria-selected]="tab.isActive()"
+      [attr.aria-controls]="'panel-' + i"
+      (click)="selectTab(i)"
+      (keydown)="onKeydown($event, i)"
+    >
+      @if (tab.iconName) {
+      <app-icon [name]="tab.iconName" size="sm"></app-icon>
+      }
+      <span>{{ tab.title }}</span>
+    </button>
+    }
+    <div class="active-tab-indicator"></div>
+  </div>
+
+  <div class="tab-panels-container">
+    @if (activeTab(); as tab) {
+    <div
+      [id]="'panel-' + activeIndex()"
+      class="tab-panel"
+      role="tabpanel"
+      [attr.aria-labelledby]="'tab-' + activeIndex()"
+    >
+      <ng-container [ngTemplateOutlet]="tab.content"></ng-container>
+    </div>
+    }
+  </div>
+</div>

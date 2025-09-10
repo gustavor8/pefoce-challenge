@@ -1,0 +1,18 @@
+.formFilter {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: start;
+
+  .container-input {
+    width: 13rem;
+    min-width: 13rem;
+  }
+  .space {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    visibility: hidden;
+  }
+}

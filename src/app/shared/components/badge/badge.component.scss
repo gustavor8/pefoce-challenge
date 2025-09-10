@@ -1,0 +1,48 @@
+@use "../../../styles/tokens/colors" as *;
+@use "../../../styles/functions/rem" as *;
+@use "../../../styles/tokens/variables" as *;
+
+$badge-font-weight: 600;
+$badge-color: $white-900;
+$badge-padding-y: rem(4);
+$badge-padding-x: rem(12);
+$badge-border-radius: rem(2);
+
+.badge {
+    font-size: $font-body-b4-size;
+    font-weight: $badge-font-weight;
+    color: $badge-color;
+    padding: $badge-padding-y $badge-padding-x;
+    border-radius: $badge-border-radius;
+    border: none;
+
+    &.primary {
+        background-color: $primary-500;
+        margin: rem(10);
+    }
+
+    &.secondary {
+        background-color: $secondary-600;
+        margin: rem(10);
+    }
+
+    &.success {
+        background-color: $green-500;
+        margin: rem(10);
+    }
+
+    &.info {
+        background-color: $primary-200;
+        margin: rem(10);
+    }
+
+    &.warning {
+        background-color: $orange-600;
+        margin: rem(10);
+    }
+
+    &.danger {
+        background-color: $red-500;
+        margin: rem(10);
+    }
+}

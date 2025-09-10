@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ErrorGenericPageComponent } from '../../../shared/components/error-generic-page/error-generic-page.component';
+import { ErrorGenericPageComponent } from '../../shared/components/error-generic-page/error-generic-page.component';
 
 @Component({
   selector: 'app-erro-page',

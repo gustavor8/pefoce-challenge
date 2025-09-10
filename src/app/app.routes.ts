@@ -2,11 +2,9 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'login',
-    loadComponent: () =>
-      import('./features/pages/login-page/login.component').then(
-        (l) => l.LoginComponent
-      ),
+    path: 'auth',
+    loadChildren: () =>
+      import('./features/login-page/login.routes').then((l) => l.AUTH_ROUTES),
   },
   {
     path: '',
@@ -24,23 +22,21 @@ export const routes: Routes = [
       {
         path: 'home',
         loadComponent: () =>
-          import('./features/pages/home/home.component').then(
-            (h) => h.HomeComponent
+          import('./features/home/home.component').then((h) => h.HomeComponent),
+      },
+      {
+        path: 'perito',
+        loadChildren: () =>
+          import('./features/pericia/pericia.routes').then(
+            (p) => p.PERICIA_ROUTES
           ),
       },
-      //     {
-      //       path: 'dashboard',
-      //       loadComponent: () =>
-      //         import('./features/pages/dashboard/dashboard.component').then(
-      //           (d) => d.DashboardComponent
-      //         ),
-      //     },
     ],
   },
   {
     path: '**',
     loadComponent: () =>
-      import('./features/pages/erro-page/erro-page.component').then(
+      import('./features/erro-page/erro-page.component').then(
         (notRoute) => notRoute.ErroPageComponent
       ),
   },

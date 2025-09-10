@@ -1,0 +1,146 @@
+<div class="table-container">
+  <div class="table-header" *ngIf="config.showColumnSelector">
+    <app-icon-button
+      [icon]="'print'"
+      (click)="(selectedData)"
+      [size]="'md'"
+      [variant]="'text'"
+    ></app-icon-button>
+
+    <app-dropdown
+      [options]="columnOptions"
+      [formControl]="visibleColumnsControl"
+      [multiSelect]="true"
+      placeholder="Selecione colunas"
+    >
+    </app-dropdown>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngIf="config.selectable">
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                [checked]="allVisibleSelected"
+                [indeterminate]="someVisibleSelected"
+                (change)="selectAllVisible($event)"
+              />
+            </div>
+          </th>
+
+          <th
+            *ngFor="let column of visibleColumns"
+            [style.width]="column.width"
+            [class.sortable]="column.sortable && config.sortable"
+            [class]="getSortClass(column)"
+            (click)="setSort(column)"
+          >
+            {{ column.label }}
+            <span *ngIf="column.sortable && config.sortable" class="sort-icon">
+              <app-icon
+                name="arrowUp"
+                (click)="(selectedData)"
+                [size]="'sm'"
+                *ngIf="sortColumn !== column.key || sortDirection === 'asc'"
+              ></app-icon>
+              <app-icon
+                name="arrowDown"
+                (click)="(selectedData)"
+                [size]="'sm'"
+                *ngIf="sortColumn !== column.key || sortDirection === 'desc'"
+              ></app-icon>
+            </span>
+          </th>
+
+          <th *ngIf="hasActionsColumn">Ações</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr
+          *ngFor="let item of paginatedData"
+          [class.table-row-selected]="isSelected(item)"
+        >
+          <td *ngIf="config.selectable">
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                [checked]="isSelected(item)"
+                (change)="toggleSelection(item, $event)"
+              />
+            </div>
+          </td>
+          <td *ngFor="let column of visibleColumns">
+            <ng-container [ngSwitch]="column.type">
+              <p>onde ficava o profile</p>
+              <app-badge
+                *ngSwitchCase="'badge'"
+                [type]="
+                  getCellValue(item, {
+                    key: column.badgeConfig?.typeKey || column.key,
+                    label: ''
+                  })
+                "
+              >
+                {{
+                  getCellValue(item, {
+                    key: column.badgeConfig?.valueKey || column.key,
+                    label: ""
+                  })
+                }}
+              </app-badge>
+
+              <span *ngSwitchDefault>
+                {{ getCellValue(item, column) }}
+              </span>
+            </ng-container>
+          </td>
+
+          <td *ngIf="hasActionsColumn" class="col-actions">
+            <ng-container *ngFor="let action of actions">
+              <app-icon-button
+                *ngIf="shouldShowAction(action, item)"
+                [icon]="action.icon"
+                [size]="action.size || 'sm'"
+                [variant]="action.variant || 'text'"
+                [title]="action.label"
+                (click)="executeAction(action, item)"
+              >
+              </app-icon-button>
+            </ng-container>
+          </td>
+        </tr>
+
+        <tr *ngIf="paginatedData.length === 0">
+          <td
+            [attr.colspan]="
+              visibleColumns.length +
+              (config.selectable ? 1 : 0) +
+              (hasActionsColumn ? 1 : 0)
+            "
+            class="text-center py-4"
+          >
+            Nenhum dado encontrado
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row" *ngIf="config.showPagination && data.length > 0">
+    <app-pagination
+      [page]="page"
+      [itemsPerPage]="itemsPerPage"
+      [collectionSize]="data.length"
+      [pageSizes]="config.pageSizes || [10, 20, 50, 100]"
+      (pageChange)="onPageChangeInternal($event)"
+      (itemsPerPageChange)="onItemsPerPageChange($event)"
+    >
+    </app-pagination>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+@use "../../../styles/tokens/colors" as *;
+@use "../../../styles/functions/rem" as *;
+
+:host {
+  display: block;
+}
+
+.tab-list {
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid $gray-50;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: $gray-300;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: $gray-300 transparent;
+
+  &.align-start {
+    justify-content: flex-start;
+  }
+
+  &.align-center {
+    justify-content: center;
+  }
+
+  &.align-end {
+    justify-content: flex-end;
+  }
+}
+
+.tab-header {
+  padding: 0.7rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  color: $gray-600;
+  border-radius: 0.4rem 0.4rem 0 0;
+  transition: color 0.1s ease-out, background-color 0.25s ease-out;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  white-space: nowrap;
+
+  &:hover:not(:disabled):not(.active) {
+    background-color: $gray-50;
+  }
+
+  &.active {
+    color: $white-100;
+  }
+
+  &:disabled {
+    color: #999;
+    cursor: not-allowed;
+  }
+}
+
+.active-tab-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 0.4rem 0.4rem 0 0;
+  background-color: $primary-700;
+  z-index: 1;
+  transition: transform 0.25s cubic-bezier(0.65, 0, 0.35, 1),
+    width 0.25s cubic-bezier(0.65, 0, 0.35, 1);
+  width: var(--indicator-width);
+  transform: translateX(var(--indicator-position));
+}
+
+.tab-panel {
+  padding: 0.3rem 0;
+  background-color: transparent;
+}

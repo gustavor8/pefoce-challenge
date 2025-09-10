@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { TextInputComponent } from '../../../shared/components/text-input/text-input.component';
-import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { TextInputComponent } from '../../shared/components/text-input/text-input.component';
+import { ButtonComponent } from '../../shared/components/button/button.component';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { AuthService } from '../../../core/services/auth/auth.service';
+import { AuthService } from '../../core/services/auth/auth.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',

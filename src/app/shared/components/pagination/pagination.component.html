@@ -1,0 +1,13 @@
+<div class="pagination-container">
+    <div class="left"></div>
+    <ngb-pagination [collectionSize]="collectionSize" [page]="page" [pageSize]="itemsPerPage"
+        (pageChange)="pageChange.emit($event)" [boundaryLinks]="true">
+    </ngb-pagination>
+
+    <div class="pagination-controls">
+        <label for="itemsPerPage">Itens por página</label>
+        <select id="itemsPerPage" [value]="itemsPerPage" (change)="onPageSizeChange($event)">
+            <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+        </select>
+    </div>
+</div>

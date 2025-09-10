@@ -42,12 +42,12 @@ export class BaselayoutComponent {
       children: [
         {
           label: 'Solicitações',
-          route: '/solicitacoes',
+          route: '/perito/solicitacoes',
           icon: 'task',
         },
         {
           label: 'Dashboard',
-          route: '/dashboards',
+          route: '/perito/dashboard',
           icon: 'fileEarMarkBarGraph',
         },
       ],

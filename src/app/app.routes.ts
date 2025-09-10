@@ -1,12 +1,13 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  // {
-  //   path: 'login',
-  //   loadComponent: () =>
-  //     import('./layout/login/login.component').then((l) => l.LoginComponent),
-  //   canActivate: [loginGuard],
-  // },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./features/pages/login-page/login.component').then(
+        (l) => l.LoginComponent
+      ),
+  },
   {
     path: '',
     // canActivate: [authGuard],
@@ -15,6 +16,11 @@ export const routes: Routes = [
         (c) => c.BaselayoutComponent
       ),
     children: [
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full',
+      },
       {
         path: 'home',
         loadComponent: () =>
@@ -37,12 +43,5 @@ export const routes: Routes = [
       import('./features/pages/erro-page/erro-page.component').then(
         (notRoute) => notRoute.ErroPageComponent
       ),
-    data: {
-      errorCode: '404',
-      errorTitle: 'Página não encontrada',
-      errorMessage:
-        'Ops... Página não localizada. Parece que vocês buscou algo que não existe no sistema, caso necessário entre em contato!',
-      buttonText: 'Voltar ao início',
-    },
   },
 ];

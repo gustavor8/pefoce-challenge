@@ -10,17 +10,12 @@ import { ErrorGenericPageComponent } from '../../../shared/components/error-gene
 })
 export class ErroPageComponent {
   route = inject(ActivatedRoute);
-  errorCode!: string;
-  errorTitle!: string;
-  errorMessage!: string;
-  buttonText!: string;
+  errorCode = '404';
+  errorTitle = 'Página não encontrada';
+  errorMessage =
+    'Ops... Página não localizada. Parece que vocês buscou algo que não existe no sistema, caso necessário entre em contato!';
+  buttonText = 'Voltar ao início';
   buttonLink: string = '/home';
 
-  constructor() {
-    const data = this.route.snapshot.data;
-    this.errorCode = data['errorCode'];
-    this.errorTitle = data['errortitle'];
-    this.errorMessage = data['errorMessage'];
-    this.buttonText = data['buttonText'];
-  }
+  constructor() {}
 }

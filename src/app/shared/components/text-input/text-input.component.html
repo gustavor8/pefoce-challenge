@@ -1,0 +1,74 @@
+<div
+  class="text-input-wrapper"
+  [class.has-value]="hasValue"
+  [class.focused]="isCurrentlyFocused"
+  [class.has-error]="hasError"
+  [class.is-disabled]="isDisabled"
+  [class.is-readonly]="readonly"
+  [class.has-prefix-icon]="hasPrefixIcon"
+  [class.has-suffix-content]="hasSuffixContent"
+>
+  @if (label) {
+  <label class="text-input-label">
+    {{ label }}
+  </label>
+  }
+
+  <div class="input-container">
+    @if (prefixIconName) {
+    <app-icon [name]="prefixIconName" class="input-icon prefix-icon"></app-icon>
+    }
+
+    <input
+      #inputElement
+      [type]="inputType"
+      [placeholder]="placeholder"
+      [value]="value"
+      [disabled]="disabled"
+      [attr.readonly]="readonly ? true : null"
+      (input)="onInputChange($event)"
+      (focus)="onInputFocus()"
+      (blur)="onInputBlur()"
+      class="text-input-field"
+      [attr.aria-invalid]="hasError"
+      [attr.min]="type === 'number' && !allowNegative ? '0' : null"
+      [attr.step]="type === 'number' ? '1' : null"
+      [attr.maxlength]="mask ? null : maxLength"
+      [attr.inputmode]="inputMode"
+    />
+
+    @if (showPasswordToggleButton) {
+    <app-icon-button
+      variant="text"
+      [icon]="passwordToggleIcon"
+      [color]="'gray'"
+      (onClick)="togglePasswordVisibility()"
+      class="suffix-button"
+    ></app-icon-button>
+    } @else if (suffixIconName && suffixIconClick.observed) {
+    <app-icon-button
+      variant="text"
+      [icon]="suffixIconName!"
+      [color]="'gray'"
+      (onClick)="onSuffixClick($event)"
+      class="suffix-button"
+    ></app-icon-button>
+    }@else if (suffixIconName) {
+    <app-icon [name]="suffixIconName" class="input-icon suffix-icon"></app-icon>
+    }
+  </div>
+
+  @if (!errorMessage && (helperText || showCharCounter)) {
+  <div class="meta-container">
+    @if (helperText) {
+    <span class="helper-text">{{ helperText }}</span>
+    } @if (showCharCounter) {
+    <span class="char-counter">{{ charCounterText }}</span>
+    }
+  </div>
+  } @if (errorMessage) {
+  <div class="error-message">
+    {{ errorMessage }}
+  </div>
+  }
+</div>

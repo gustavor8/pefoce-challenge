@@ -12,7 +12,7 @@ export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(this.hasToken());
   readonly isLoggedIn$ = this.loggedIn.asObservable();
 
-  private apiUrl = 'http://localhost:5000/api/';
+  private apiUrl = 'http://localhost:5000/api';
 
   private hasToken(): boolean {
     return !!localStorage.getItem('access_token');
@@ -31,9 +31,9 @@ export class AuthService {
   }): Observable<any> {
     return this.http
       .post<{ access_token: string; user: { username: string } }>(
-        `${this.apiUrl}/login`,
+        `${this.apiUrl}/auth/login`,
         {
-          login: username,
+          username,
           password,
         }
       )

@@ -1,0 +1,33 @@
+.chart-container {
+  position: relative;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: height 0.3s ease-in-out, width 0.3s ease-in-out;
+
+  canvas {
+    display: block;
+  }
+
+  &.size-sm {
+    height: 18.75rem;
+    width: 100%;
+  }
+
+  &.size-md {
+    height: 25rem;
+    width: 100%;
+  }
+
+  &.size-lg {
+    height: 31.25rem;
+    width: auto;
+  }
+
+  &.size-auto {
+    height: 31.25rem;
+    width: 95vw;
+  }
+}

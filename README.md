@@ -44,14 +44,17 @@ Se preferir pode abrir o projeto direto com a IDE.
 
 3. **Instalar Dependências**
 
-````bash
-npm install```
+```bash
+npm install
+```
+
+
 4. **Iniciar o Servidor de Desenvolvimento**
 Para iniciar o servidor de desenvolvimento, execute o seguinte comando no seu terminal:
 
 ```bash
 ng serve
-````
+```
 
 5. **Acessar a Aplicação**
    Após iniciar o servidor, abra seu navegador e acesse a seguinte URL:
@@ -64,7 +67,7 @@ A aplicação será recarregada automaticamente sempre que você modificar os ar
 
 6. **Iniciar o Servidor Back-end**
 
-Irei deixar no projeto também o back-end, ressalvando que este não foi criado por mim, mas sim por Ênio Viana. Todas as intruções para o back-end são dadas através do arquivo do Insominia que está contemplato na pasta do supracitado servidor.
+Irei deixar no projeto também o back-end, ressalvando que este não foi criado por mim, mas sim por Ênio Viana. Todas as intruções para o back-end são dadas através do arquivo do Insominia que está contemplado na pasta do supracitado servidor.
 
 ## 📁 Estrutura de Diretórios
 

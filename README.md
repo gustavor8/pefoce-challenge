@@ -48,9 +48,8 @@ Se preferir pode abrir o projeto direto com a IDE.
 npm install
 ```
 
-
 4. **Iniciar o Servidor de Desenvolvimento**
-Para iniciar o servidor de desenvolvimento, execute o seguinte comando no seu terminal:
+   Para iniciar o servidor de desenvolvimento, execute o seguinte comando no seu terminal:
 
 ```bash
 ng serve
@@ -205,7 +204,15 @@ src/
 
 ---
 
+## 🌿 Branches
 
+O controle de versão do projeto segue o modelo **Git Flow**, com as seguintes branches principais:
+
+- **`main`**  
+  Branch principal e estável do projeto. Contém sempre a versão pronta para produção. Todas as funcionalidades implementadas e testadas devem ser mescladas nesta branch somente após aprovação nos ambientes de teste.
+
+- **`develop`**  
+  Branch de desenvolvimento, utilizada para integração de novas funcionalidades, correções de bugs e melhorias. É a base para a criação de branches de feature, bugfix ou hotfix antes de serem integradas à branch `main`.
 
 ## 🔄 Scripts Disponíveis
 

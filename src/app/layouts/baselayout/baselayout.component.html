@@ -8,7 +8,15 @@
     [isMenuOpen]="isMenuExpanded()"
     (menuButtonClick)="onHeaderMenuClick()"
   >
-    <div slot="right"><p>Hello User!</p></div>
+    <div slot="right">
+      <app-button
+        label="Sair"
+        [icon]="'logout'"
+        variant="text"
+        [color]="'gray'"
+        (onClick)="logout()"
+      />
+    </div>
   </app-header>
 
   <div class="page-content">

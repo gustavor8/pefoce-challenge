@@ -1,5 +1,5 @@
 export interface SearchField {
-  type: 'text' | 'dropdown';
+  type: 'text' | 'dropdown' | 'number';
   name: string;
   placeholder: string;
   maxLength?: number;
@@ -19,7 +19,7 @@ export const searchTypes: SearchType[] = [
     label: 'Solicitação',
     fields: [
       {
-        type: 'text',
+        type: 'number',
         name: 'numeroSolicitacao',
         placeholder: 'Nº de solicitação',
         required: true,
@@ -31,7 +31,7 @@ export const searchTypes: SearchType[] = [
     label: 'Cádaver',
     fields: [
       {
-        type: 'text',
+        type: 'number',
         name: 'numeroPulseira',
         placeholder: 'Número da pulseira',
         required: true,
@@ -67,13 +67,13 @@ export const searchTypes: SearchType[] = [
         required: true,
       },
       {
-        type: 'text',
+        type: 'number',
         name: 'numeroGuia',
         placeholder: 'Digite o número',
         required: true,
       },
       {
-        type: 'text',
+        type: 'number',
         name: 'anoGuia',
         placeholder: 'Digite o ano',
       },
@@ -84,13 +84,13 @@ export const searchTypes: SearchType[] = [
     label: 'Caso',
     fields: [
       {
-        type: 'text',
+        type: 'number',
         name: 'numeroCaso',
         placeholder: 'Digite o número',
         required: true,
       },
       {
-        type: 'text',
+        type: 'number',
         name: 'anoCaso',
         placeholder: 'Digite o ano',
       },
@@ -111,13 +111,13 @@ export const searchTypes: SearchType[] = [
         ],
       },
       {
-        type: 'text',
+        type: 'number',
         name: 'numeroOficio',
         placeholder: 'Digite o número',
         required: true,
       },
       {
-        type: 'text',
+        type: 'number',
         name: 'anoOficio',
         placeholder: 'Digite o ano',
       },
@@ -128,7 +128,7 @@ export const searchTypes: SearchType[] = [
     label: 'Evidência',
     fields: [
       {
-        type: 'text',
+        type: 'number',
         name: 'numeroEvidencia',
         placeholder: 'Digite o número',
         required: true,
@@ -140,7 +140,7 @@ export const searchTypes: SearchType[] = [
     label: 'Laudo',
     fields: [
       {
-        type: 'text',
+        type: 'number',
         name: 'numeroLaudo',
         placeholder: 'Digite o número',
         required: true,

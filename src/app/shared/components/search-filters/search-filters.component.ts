@@ -29,6 +29,7 @@ import { ButtonComponent } from '../button/button.component';
 export class SearchFiltersComponent {
   @Output() searchEvent = new EventEmitter<any>();
   activeFields: SearchField[] = [];
+  isLoading: boolean = false;
 
   fb = inject(FormBuilder);
   searchForm: FormGroup;
@@ -79,11 +80,13 @@ export class SearchFiltersComponent {
 
   onSearch() {
     if (this.searchForm.valid) {
+      this.isLoading = true;
+      alert('Lógica de busca não implementada!');
+
       this.searchEvent.emit(this.searchForm.value);
-      alert('O evento foi emitido e esse alert é somente para infonmar');
-      console.info(this.searchForm.value);
     } else {
       this.searchForm.markAllAsTouched();
     }
+    this.isLoading = false;
   }
 }

@@ -1,1 +1,11 @@
 <app-search-filters></app-search-filters>
+<div class="table-container">
+  <app-table
+    [data]="data"
+    [columns]="columns"
+    [actions]="actions"
+    (pageChange)="onPageChange($event)"
+    (sortChange)="onSortChange($event)"
+    [totalItems]="totalItems"
+  ></app-table>
+</div>

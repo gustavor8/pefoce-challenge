@@ -1,6 +1,10 @@
+:host {
+  display: block;
+}
+
 .chart-container {
   position: relative;
-  margin: 1rem 0;
+
   padding: 1rem;
   background: white;
   border-radius: 8px;
@@ -23,11 +27,11 @@
 
   &.size-lg {
     height: 31.25rem;
-    width: auto;
+    width: 100%;
   }
 
   &.size-auto {
     height: 31.25rem;
-    width: 95vw;
+    width: 79vw;
   }
 }

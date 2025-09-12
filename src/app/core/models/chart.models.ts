@@ -8,8 +8,8 @@ import {
 export interface ChartDataset<
   T extends keyof ChartTypeRegistry = keyof ChartTypeRegistry
 > {
-  label: string;
-  data: T extends 'scatter'
+  label?: string;
+  data?: T extends 'scatter'
     ? ScatterDataPoint[]
     : T extends 'bubble'
     ? BubbleDataPoint[]
@@ -72,10 +72,21 @@ export type ChartType = keyof ChartTypeRegistry;
 
 export interface ChartConfig {
   type: ChartType;
-  data: ChartData;
+  data?: ChartData;
   options?: ChartOptions;
   title?: string;
   size?: ChartSize;
   showLegend?: boolean;
   showTooltips?: boolean;
+  showDataLabels?: boolean;
+}
+export interface ChartDatasetData {
+  labels: string[];
+  datasets: {
+    label: string;
+    data: number[];
+    backgroundColor?: string | string[];
+    borderColor?: string | string[];
+    fill?: boolean;
+  }[];
 }

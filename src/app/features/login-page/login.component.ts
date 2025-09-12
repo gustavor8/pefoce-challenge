@@ -47,7 +47,7 @@ export class LoginComponent {
 
     this.isLoading = true;
     this.loginForm.disable();
-    console.log(this.loginForm.value);
+
     this.authService.login(this.loginForm.value).subscribe({
       next: () => {
         this.router.navigate(['/']);

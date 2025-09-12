@@ -64,7 +64,6 @@ export const searchTypes: SearchType[] = [
           { value: 'bombeiros', label: 'Bombeiros' },
           { value: 'outro', label: 'Outro' },
         ],
-        required: true,
       },
       {
         type: 'number',

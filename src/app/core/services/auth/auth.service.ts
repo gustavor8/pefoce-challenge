@@ -15,7 +15,7 @@ export class AuthService {
   private apiUrl = 'http://localhost:5000/api';
 
   private hasToken(): boolean {
-    return !!localStorage.getItem('access_token');
+    return !!sessionStorage.getItem('access_token');
   }
 
   public isLoggedIn(): boolean {
@@ -39,8 +39,8 @@ export class AuthService {
       )
       .pipe(
         tap((response) => {
-          localStorage.setItem('access_token', response.access_token);
-          localStorage.setItem('username', response.user.username);
+          sessionStorage.setItem('access_token', response.access_token);
+          sessionStorage.setItem('username', response.user.username);
           this.loggedIn.next(true);
         }),
         catchError((error) => {
@@ -51,14 +51,14 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('username');
+    sessionStorage.removeItem('access_token');
+    sessionStorage.removeItem('username');
     this.loggedIn.next(false);
   }
   getUsername(): string | null {
-    return localStorage.getItem('username');
+    return sessionStorage.getItem('username');
   }
   getToken(): string | null {
-    return localStorage.getItem('access_token');
+    return sessionStorage.getItem('access_token');
   }
 }

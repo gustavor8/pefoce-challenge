@@ -202,35 +202,13 @@ src/
 
 ---
 
-## 🧪 Testes
 
-O projeto está configurado com ferramentas para testes unitários e de ponta a ponta (e2e).
-
-#### Testes Unitários
-
-Para rodar os testes unitários via Karma e Jasmine:
-
-```bash
-ng test
-```
-
-#### Testes de Ponta a Ponta (E2E)
-
-Para rodar os testes de ponta a ponta (end-to-end):
-
-```bash
-ng e2e
-```
-
----
 
 ## 🔄 Scripts Disponíveis
 
 Você pode usar os seguintes scripts definidos no `package.json` com `npm run <script>` ou diretamente com `ng`:
 
 - `ng serve`: Inicia o servidor de desenvolvimento.
-- `ng test`: Executa os testes unitários.
-- `ng e2e`: Executa os testes de ponta a ponta.
 - `ng lint`: Analisa o código em busca de problemas de estilo e erros.
 - `ng build`: Compila a aplicação para um ambiente de produção. O resultado fica na pasta `dist/`.
 

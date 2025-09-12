@@ -10,6 +10,7 @@ import { BaseChartDirective } from 'ng2-charts';
 import { ChartConfig, ChartSize } from '../../../core/models/chart.models';
 import { BreakpointService } from '../../../core/services/breakpoint/breakpoint.service';
 import { combineLatest, Subscription } from 'rxjs';
+import * as ChartDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'app-chart',
@@ -21,6 +22,7 @@ import { combineLatest, Subscription } from 'rxjs';
 })
 export class ChartComponent implements OnChanges {
   @Input() config!: ChartConfig;
+  public plugins = [ChartDataLabels.default];
 
   public chartData: any = { labels: [], datasets: [] };
   public chartOptions: any = {};
@@ -63,6 +65,8 @@ export class ChartComponent implements OnChanges {
   }
 
   private buildOptions(config: ChartConfig): any {
+    const isCircular = ['pie', 'doughnut', 'polarArea'].includes(config.type);
+
     const options: any = {
       responsive: true,
       maintainAspectRatio: false,
@@ -70,10 +74,10 @@ export class ChartComponent implements OnChanges {
         legend: {
           position: config.options?.plugins?.legend?.position || 'top',
           display: config.showLegend ?? true,
-          onHover: (event: any, legendItem: any, legend: any) => {
+          onHover: (event: any) => {
             event.native?.target?.style?.setProperty('cursor', 'pointer');
           },
-          onLeave: (event: any, legendItem: any, legend: any) => {
+          onLeave: (event: any) => {
             event.native?.target?.style?.setProperty('cursor', 'default');
           },
         },
@@ -91,19 +95,64 @@ export class ChartComponent implements OnChanges {
       },
     };
 
-    if (!['pie', 'doughnut', 'polarArea', 'radar'].includes(config.type)) {
+    if (config.showDataLabels) {
+      options.plugins.datalabels = {
+        display: true,
+        color: '#ffffff',
+        font: {
+          weight: 'bold',
+          size: 14,
+        },
+        formatter: (value: number) => {
+          return value;
+        },
+        textStrokeColor: 'rgba(0, 0, 0, 0.5)',
+        textStrokeWidth: 2,
+      };
+
+      if (isCircular) {
+        options.plugins.datalabels = {
+          ...options.plugins.datalabels,
+          anchor: 'center',
+          align: 'center',
+          formatter: (value: number, context: any) => {
+            // Obter todos os dados válidos (não nulos) do dataset
+            const dataset = context.chart.data.datasets[0];
+            const validData = dataset.data.filter(
+              (v: any) => v !== null && v !== undefined
+            );
+
+            // Calcular o total apenas com os valores válidos
+            const total = validData.reduce((a: number, b: number) => a + b, 0);
+
+            if (total === 0 || value === null || value === undefined) {
+              return null; // Não mostrar label para valores nulos ou quando o total é zero
+            }
+
+            const percentage = ((value / total) * 100).toFixed(1);
+            return parseFloat(percentage) > 3 ? `${percentage}%` : null;
+          },
+        };
+      }
+    } else {
+      options.plugins.datalabels = {
+        display: false,
+      };
+    }
+
+    if (!isCircular && config.type !== 'radar') {
       options.scales = {
         x: {
           display: true,
           title: {
-            display: config.options?.scales?.x?.title?.display || false,
+            display: !!config.options?.scales?.x?.title?.text,
             text: config.options?.scales?.x?.title?.text || '',
           },
         },
         y: {
           display: true,
           title: {
-            display: config.options?.scales?.y?.title?.display || false,
+            display: !!config.options?.scales?.y?.title?.text,
             text: config.options?.scales?.y?.title?.text || '',
           },
           beginAtZero: config.options?.scales?.y?.beginAtZero ?? true,

@@ -3,7 +3,7 @@ import { ChartData, ChartDataset } from '../../../core/models/chart.models';
 // DADOS DE LINHA: Evolução Mensal de Perícias
 export const lineDatasetConcluidas: ChartDataset<'line'> = {
   type: 'line',
-  label: 'Laudos Conluídos',
+  label: 'Perícias Recebidas',
   data: [4, 5, 6, 8, 7, 6], // Dados fictícios para 6 meses
   borderColor: '#FF6384',
   backgroundColor: 'rgba(255, 99, 132, 0.2)',
@@ -14,7 +14,7 @@ export const lineDatasetConcluidas: ChartDataset<'line'> = {
 
 export const lineDatasetEmAndamento: ChartDataset<'line'> = {
   type: 'line',
-  label: 'Laudos Pendentes',
+  label: 'Perícias Pendentes',
   data: [10, 8, 9, 7, 8, 8], // Dados fictícios para 6 meses
   borderColor: '#36A2EB',
   backgroundColor: 'rgba(54, 162, 235, 0.2)',
@@ -26,8 +26,8 @@ export const lineDatasetEmAndamento: ChartDataset<'line'> = {
 // DADOS DE BARRA: Status das Solicitações
 export const barDatasetRecebidas: ChartDataset<'bar'> = {
   type: 'bar',
-  label: 'Solicitações no Setor',
-  data: [5, 7, 6, 8, 6, 9],
+  label: 'Total de laudos no setor',
+  data: [8, 9, 10, 8, 6, 9],
   borderColor: '#36A2EB',
   backgroundColor: 'rgba(54, 162, 235, 0.5)',
   borderWidth: 2,
@@ -35,7 +35,7 @@ export const barDatasetRecebidas: ChartDataset<'bar'> = {
 
 export const barDatasetDistribuidas: ChartDataset<'bar'> = {
   type: 'bar',
-  label: 'Solicitações Recebidas',
+  label: 'Laudos realizados',
   data: [4, 6, 5, 7, 5, 7],
   borderColor: '#FF6384',
   backgroundColor: 'rgba(255, 99, 132, 0.5)',

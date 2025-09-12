@@ -38,7 +38,7 @@ export class DashboardComponent {
   public barConfig: ChartConfig = {
     type: 'bar',
     data: barData,
-    title: 'Perícia no setor x recebidas',
+    title: 'Total de laudos x Produzidos',
     size: 'md',
     options: this.baseOptions,
   };

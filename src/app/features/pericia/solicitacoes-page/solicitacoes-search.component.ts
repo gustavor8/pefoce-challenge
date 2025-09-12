@@ -9,9 +9,19 @@ import {
 import { Subject, takeUntil } from 'rxjs';
 import { SolicitacoesService } from '../../../core/services/solicitacoes/solicitacoes.service';
 import { TableData } from '../../../core/models/solitacoes-api';
+import { CARD_MAPPING, CardData } from './card-mapping';
+import { StatisticsService } from '../../../core/services/statistics/statistics.service';
+import { TagCardComponent } from '../../../shared/components/tag-card/tag-card.component';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-solicitacoes-search',
-  imports: [SearchFiltersComponent, TableComponent],
+  imports: [
+    SearchFiltersComponent,
+    TableComponent,
+    TagCardComponent,
+    CommonModule,
+  ],
   templateUrl: './solicitacoes-search.component.html',
   styleUrl: './solicitacoes-search.component.scss',
 })
@@ -29,7 +39,6 @@ export class SolicitacoesSearchComponent implements OnInit, OnDestroy {
       label: 'Protocolo',
       sortable: false,
       visible: true,
-
       width: '120px',
     },
     {
@@ -37,7 +46,6 @@ export class SolicitacoesSearchComponent implements OnInit, OnDestroy {
       label: 'Data',
       sortable: true,
       visible: true,
-
       width: '100px',
     },
     {
@@ -45,7 +53,6 @@ export class SolicitacoesSearchComponent implements OnInit, OnDestroy {
       label: 'Hora',
       sortable: false,
       visible: true,
-
       width: '80px',
     },
     {
@@ -53,7 +60,6 @@ export class SolicitacoesSearchComponent implements OnInit, OnDestroy {
       label: 'Delegacia',
       sortable: false,
       visible: true,
-
       width: '150px',
     },
     {
@@ -61,7 +67,6 @@ export class SolicitacoesSearchComponent implements OnInit, OnDestroy {
       label: 'Cidade',
       sortable: true,
       visible: true,
-
       width: '120px',
     },
     {
@@ -91,12 +96,16 @@ export class SolicitacoesSearchComponent implements OnInit, OnDestroy {
   ];
 
   private destroy$ = new Subject<void>();
-
-  constructor() {}
+  private statisticsService = inject(StatisticsService);
   private solicitacoesService = inject(SolicitacoesService);
+
+  cards: CardData[] = [];
+  statisticsData: any = {};
+  cardsLoading: boolean = false;
 
   ngOnInit(): void {
     this.loadData();
+    this.loadStatistics();
   }
 
   loadData(page: number = 1, itemsPerPage: number = 10): void {
@@ -119,12 +128,49 @@ export class SolicitacoesSearchComponent implements OnInit, OnDestroy {
       });
   }
 
-  onPageChange(event: { page: number; itemsPerPage: number }): void {
-    this.loadData(event.page, event.itemsPerPage);
+  loadStatistics(): void {
+    this.cardsLoading = true;
+    this.statisticsService
+      .getStatistics()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (stats: any) => {
+          this.statisticsData = stats.statistics || {};
+          this.mapStatisticsToCards();
+          this.cardsLoading = false;
+        },
+        error: (err) => {
+          console.error('Erro ao carregar estatísticas:', err);
+          this.statisticsData = {};
+          this.cardsLoading = false;
+        },
+      });
   }
 
-  onSelectionChange(selected: any[]): void {
-    console.log('Selecionados:', selected);
+  mapStatisticsToCards(): void {
+    if (!this.statisticsData) {
+      this.statisticsData = {};
+    }
+
+    this.cards = Object.entries(this.statisticsData).map(([key, quantity]) => {
+      const mapping = CARD_MAPPING[key] || {
+        iconClass: 'fas fa-question-circle',
+        bgColor: 'bg-secondary',
+        title: key,
+      };
+
+      return {
+        key: key,
+        title: mapping.title,
+        quantity: quantity as number,
+        iconClass: mapping.iconClass,
+        bgColor: mapping.bgColor,
+      };
+    });
+  }
+
+  onPageChange(event: { page: number; itemsPerPage: number }): void {
+    this.loadData(event.page, event.itemsPerPage);
   }
 
   ngOnDestroy(): void {

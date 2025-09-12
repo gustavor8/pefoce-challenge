@@ -1,0 +1,64 @@
+.tag-card {
+  width: clamp(200px, 350px, 400px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.25rem;
+    background-color: #6f42c1;
+    flex-shrink: 0;
+
+    i {
+      font-size: 2rem;
+      color: #fff;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+
+    .tag-card__title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #6c757d;
+      margin-bottom: 0.25rem;
+    }
+
+    .tag-card__quantity {
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: #343a40;
+    }
+  }
+}
+.tag-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.25rem;
+  background-color: #6f42c1;
+  flex-shrink: 0;
+  min-width: 70px;
+  min-height: 70px;
+
+  i {
+    font-size: 2rem;
+    color: #fff;
+  }
+}
+@media (max-width: 768px) {
+  .tag-card {
+    width: 300px;
+  }
+}

@@ -1,0 +1,10 @@
+<div class="tag-card" (click)="onClick()">
+  <div class="tag-card__icon" [style.background-color]="bgColor">
+    <i [class]="iconClass"></i>
+  </div>
+
+  <div class="tag-card__content">
+    <div class="tag-card__title">{{ title }}</div>
+    <div class="tag-card__quantity">{{ quantity }}</div>
+  </div>
+</div>

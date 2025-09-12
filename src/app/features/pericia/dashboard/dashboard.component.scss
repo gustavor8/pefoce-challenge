@@ -1,0 +1,17 @@
+.dashboard-container {
+  padding: 0 1rem 0 1rem;
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  .main-chart {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-height: 700px;
+    overflow: hidden;
+    justify-content: center;
+  }
+}

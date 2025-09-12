@@ -1,59 +1,235 @@
-# A
+# 📘 Documentação Completa do Sistema
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+## Visão Geral
 
-## Development server
+Este projeto é uma aplicação Angular estruturada com diversas funcionalidades, incluindo autenticação, layouts, componentes compartilhados e páginas específicas. Ele segue uma arquitetura modular para facilitar a escalabilidade e manutenção. Foi desenvolvido oriundo de um desafio da Pericia Forense do Estado do Ceará para concorrer a vaga de Desenvolvedor Pleno.
 
-To start a local development server, run:
+---
+
+## 🔧 Tecnologias e Versões
+
+- **Framework**: Angular Versão: 19.2.15
+- **Node.js**: v23.3.0
+- **NPM**:10.9.0
+- **IDE**: VSCode
+
+---
+
+## 🛠️ Como Usar
+
+### Pré-requisitos
+
+- Instalar o [Node.js](https://nodejs.org/) (versão recomendada: v23.3.0 )
+- Instalar o [Angular CLI](https://angular.io/cli) globalmente:
+
+```bash
+npm install -g @angular/cli
+```
+
+### Passos para Execução
+
+1. **Clonar o Repositório**
+
+````bash
+git clone https://github.com/gustavor8/pefoce-challenge.git```
+````
+
+2. **Acessar o repósitorio**
+
+```bash
+cd pefoce-challenge
+```
+
+Se preferir pode abrir o projeto direto com a IDE.
+
+3. **Instalar Dependências**
+
+```bash
+npm install
+```
+
+4. **Iniciar o Servidor de Desenvolvimento**
+   Para iniciar o servidor de desenvolvimento, execute o seguinte comando no seu terminal:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+5. **Acessar a Aplicação**
+   Após iniciar o servidor, abra seu navegador e acesse a seguinte URL:
 
-## Code scaffolding
+[http://localhost:4200/](http://localhost:4200/)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+A aplicação será recarregada automaticamente sempre que você modificar os arquivos de origem.
 
-```bash
-ng generate component component-name
+---
+
+6. **Iniciar o Servidor Back-end**
+
+Irei deixar no projeto também o back-end, ressalvando que este não foi criado por mim, mas sim por Ênio Viana. Todas as intruções para o back-end são dadas através do arquivo do Insominia que está contemplado na pasta do supracitado servidor.
+
+## 📁 Estrutura de Diretórios
+
+Abaixo está a estrutura principal do projeto:
+
+```
+src/
+├── index.html
+├── main.ts
+├── polyfills.ts
+├── app/
+│   ├── app.component.html
+│   ├── app.component.ts
+│   ├── app.config.ts
+│   ├── app.routes.ts
+│   ├── core/
+│   │   ├── guards/
+│   │   │   ├── authGuard/
+│   │   │   │   ├── auth-guard.guard.spec.ts
+│   │   │   │   ├── auth-guard.guard.ts
+│   │   │   ├── is-login/
+│   │   │       ├── is-login.guard.spec.ts
+│   │   │       ├── is-login.guard.ts
+│   │   ├── interceptors/
+│   │   │   ├── token/
+│   │   │       ├── token.interceptor.spec.ts
+│   │   │       ├── token.interceptor.ts
+│   │   ├── models/
+│   │   │   ├── chart.models.ts
+│   │   │   ├── solitacoes-api.ts
+│   │   ├── services/
+│   │       ├── auth/
+│   │           ├── auth.service.spec.ts
+│   │           ├── auth.service.ts
+│   ├── features/
+│   │   ├── erro-page/
+│   │   │   ├── erro-page.component.html
+│   │   │   ├── erro-page.component.scss
+│   │   │   ├── erro-page.component.spec.ts
+│   │   │   ├── erro-page.component.ts
+│   │   ├── home/
+│   │   │   ├── home.component.html
+│   │   │   ├── home.component.scss
+│   │   │   ├── home.component.spec.ts
+│   │   │   ├── home.component.ts
+│   │   ├── login-page/
+│   │   │   ├── login.component.html
+│   │   │   ├── login.component.scss
+│   │   │   ├── login.component.ts
+│   │   │   ├── login.routes.ts
+│   │   ├── pericia/
+│   │       ├── dashboard/
+│   │       ├── pericia.routes.ts
+│   │       ├── solicitacoes-page/
+│   ├── layouts/
+│   │   ├── baselayout/
+│   │       ├── baselayout.component.html
+│   │       ├── baselayout.component.scss
+│   │       ├── baselayout.component.spec.ts
+│   │       ├── baselayout.component.ts
+│   ├── shared/
+│   │   ├── components/
+│   │   │   ├── avatar/
+│   │   │   ├── badge/
+│   │   │   ├── button/
+│   │   │   ├── chart/
+│   │   │   ├── checkbox/
+│   │   │   ├── dropdown/
+│   │   │   ├── error-generic-page/
+│   │   │   ├── footer/
+│   │   │   ├── header/
+│   │   │   ├── icon/
+│   │   │   ├── icon-button/
+│   │   │   ├── loader/
+│   │   │   ├── loading-overlay/
+│   │   │   ├── menu/
+│   │   │   ├── menu-item/
+│   │   │   ├── pagination/
+│   │   │   ├── popover/
+│   │   │   ├── search-filters/
+│   │   │   ├── tab/
+│   │   │   ├── table/
+│   │   │   ├── tabs/
+│   │   │   ├── text-input/
+│   │   ├── directives/
+│   │       ├── popover-trigger.directive.ts
+│   ├── styles/
+│       ├── styles.scss
+│       ├── functions/
+│       │   ├── _rem.scss
+│       ├── mixins/
+│       │   ├── _shadow.scss
+│       ├── tokens/
+│           ├── _colors.scss
+│           ├── _index.scss
+│           ├── _variables.scss
+├── assets/
+│   ├── files/
+│   │   ├── marker-icon-2x.png
+│   │   ├── marker-icon.png
+│   │   ├── marker-shadow.png
+│   │   ├── teste2.kml
+│   ├── fonts/
+│   │   ├── Figtree/
+│   │       ├── Figtree-Italic-VariableFont_wght.ttf
+│   │       ├── Figtree-VariableFont_wght.ttf
+│   │       ├── OFL.txt
+│   │       ├── README.txt
+│   ├── images/
+│   │   ├── avatar-1.png
+│   │   ├── avatar-2.png
+│   │   ├── avatar-3.png
+│   │   ├── avatar-4.png
+│   │   ├── avatar-5.png
+│   │   ├── logo-footer.png
+│   │   ├── logo.png
+│   │   ├── pefoce.png
+│   │   ├── slide1.jpg
+│   │   ├── slide2.jpg
+│   │   ├── slide3.jpg
+│   ├── svgs/
+│       ├── logo-galileu-primary.svg
+│       ├── logo-galileu.svg
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Estrutura Modular
 
-## Building
+- **Core**: Contém serviços, guards, modelos e interceptadores.
+- **Features**: Funcionalidades específicas da aplicação.
+- **Shared**: Componentes e diretivas reutilizáveis.
+- **Layouts**: Estruturas de layout da aplicação.
+- **Styles**: Estilizações globais e tokens de design.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 🌿 Branches
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+O controle de versão do projeto segue o modelo **Git Flow**, com as seguintes branches principais:
 
-## Running unit tests
+- **`main`**  
+  Branch principal e estável do projeto. Contém sempre a versão pronta para produção. Todas as funcionalidades implementadas e testadas devem ser mescladas nesta branch somente após aprovação nos ambientes de teste.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- **`develop`**  
+  Branch de desenvolvimento, utilizada para integração de novas funcionalidades, correções de bugs e melhorias. É a base para a criação de branches de feature, bugfix ou hotfix antes de serem integradas à branch `main`.
 
-```bash
-ng test
-```
+## 🔄 Scripts Disponíveis
 
-## Running end-to-end tests
+Você pode usar os seguintes scripts definidos no `package.json` com `npm run <script>` ou diretamente com `ng`:
 
-For end-to-end (e2e) testing, run:
+- `ng serve`: Inicia o servidor de desenvolvimento.
+- `ng lint`: Analisa o código em busca de problemas de estilo e erros.
+- `ng build`: Compila a aplicação para um ambiente de produção. O resultado fica na pasta `dist/`.
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 📄 Licença
 
-## Additional Resources
+Este projeto está licenciado sob a [MIT License](LICENSE).
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 👤 Criado por
+
+Gustavo Rodrigues

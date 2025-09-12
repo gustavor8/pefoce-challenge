@@ -1,0 +1,56 @@
+<footer #footerElement class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img [src]="logoUrl" [alt]="logoAlt" class="logo-image" />
+    </div>
+
+    <div class="footer-links">
+      @for (link of footerLinks; track link.label) {
+      <a [href]="link.url" class="footer-link">
+        {{ link.label }}
+      </a>
+      }
+    </div>
+
+    <div class="footer-contact">
+      <div class="address-section">
+        <app-icon [name]="'geo'" [size]="'sm'" class="location-icon"></app-icon>
+        <span class="address-text">{{ address }}</span>
+      </div>
+      <div class="social-section">
+        <div class="social-icons">
+          @for (social of socialLinks; track social.platform) {
+          <a
+            [href]="social.url"
+            class="social-link"
+            [attr.aria-label]="social.platform"
+          >
+            <i [class]="social.icon"></i>
+          </a>
+          }
+        </div>
+      </div>
+    </div>
+
+    @if(showButtoScrollTop){
+    <div class="footer-scroll-top">
+      <app-icon-button
+        [icon]="'arrowUp'"
+        [variant]="'primary'"
+        [size]="'md'"
+        [disabled]="false"
+        [loading]="false"
+        (onClick)="onClick($event)"
+      ></app-icon-button>
+    </div>
+    }
+  </div>
+
+  <div class="footer-bottom">
+    <div class="copyright-info">
+      <p class="copyright-text">© {{ currentYear }} - {{ copyrightText }}</p>
+      <p class="department-text">{{ department }}</p>
+      <p class="version-text">{{ version }}</p>
+    </div>
+  </div>
+</footer>

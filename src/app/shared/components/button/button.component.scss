@@ -1,0 +1,287 @@
+@use "../../../styles/tokens/colors" as *;
+@use "../../../styles/tokens/variables" as *;
+
+$button-colors: (
+  primary: (
+    base: $primary-500,
+    hover: $primary-600,
+    active: $primary-700,
+    text: $white-900,
+    light: $primary-50,
+    lighter: $primary-100,
+  ),
+  secondary: (
+    base: $secondary-500,
+    hover: $secondary-600,
+    active: $secondary-700,
+    text: $white-900,
+    light: $secondary-50,
+    lighter: $secondary-100,
+  ),
+  green: (
+    base: $green-500,
+    hover: $green-600,
+    active: $green-700,
+    text: $white-900,
+    light: $green-50,
+    lighter: $green-100,
+  ),
+  red: (
+    base: $red-500,
+    hover: $red-600,
+    active: $red-700,
+    text: $white-900,
+    light: $red-50,
+    lighter: $red-100,
+  ),
+  orange: (
+    base: $orange-500,
+    hover: $orange-600,
+    active: $orange-700,
+    text: $white-900,
+    light: $orange-50,
+    lighter: $orange-100,
+  ),
+  teal: (
+    base: $teal-500,
+    hover: $teal-600,
+    active: $teal-700,
+    text: $white-900,
+    light: $teal-50,
+    lighter: $teal-100,
+  ),
+  neutral: (
+    base: $neutral-600,
+    hover: $neutral-700,
+    active: $neutral-800,
+    text: $white-900,
+    light: $neutral-50,
+    lighter: $neutral-100,
+  ),
+  gray: (
+    base: $black-900,
+    hover: $gray-700,
+    active: $gray-800,
+    text: $white-900,
+    light: $gray-50,
+    lighter: $gray-100,
+  ),
+);
+
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:focus:not(.button--disabled):not(.button--loading) {
+    outline: 2px solid $primary-200;
+  }
+
+  @each $color-name, $palette in $button-colors {
+    &--color-#{$color-name} {
+      &.button--primary {
+        background-color: map-get($palette, base);
+        color: map-get($palette, text);
+
+        &:hover:not(.button--disabled):not(.button--loading) {
+          background-color: map-get($palette, hover);
+        }
+        &:active:not(.button--disabled):not(.button--loading) {
+          background-color: map-get($palette, active);
+        }
+      }
+
+      &.button--outline {
+        background-color: transparent;
+        color: map-get($palette, base);
+        border: 0.094rem solid map-get($palette, base);
+
+        &:hover:not(.button--disabled):not(.button--loading) {
+          background-color: map-get($palette, light);
+        }
+        &:active:not(.button--disabled):not(.button--loading) {
+          background-color: map-get($palette, lighter);
+        }
+      }
+
+      &.button--text {
+        background-color: transparent;
+        color: map-get($palette, base);
+
+        &:hover:not(.button--disabled):not(.button--loading) {
+          background-color: map-get($palette, light);
+        }
+        &:active:not(.button--disabled):not(.button--loading) {
+          background-color: map-get($palette, lighter);
+        }
+      }
+    }
+  }
+
+  &--icon-only {
+    background-color: transparent;
+
+    &.button--sm {
+      padding: 0.4rem;
+    }
+
+    &.button--md {
+      padding: 0.6rem;
+    }
+
+    &.button--lg {
+      padding: 0.8rem;
+    }
+
+    .button__content,
+    .button__icon {
+      margin: 0;
+    }
+  }
+
+  &--primary {
+    background-color: $primary-500;
+    color: white;
+
+    &:hover:not(.button--primary--disabled):not(.button--loading) {
+      background-color: $primary-600;
+    }
+
+    &:active:not(.button--disabled):not(.button--loading) {
+      background-color: $primary-700;
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: $primary-500;
+    border: 0.094rem solid $primary-500;
+
+    &:hover:not(.button--outline--disabled):not(.button--loading) {
+      background-color: $primary-50;
+    }
+
+    &:active:not(.button--outline--disabled):not(.button--loading) {
+      background-color: $primary-100;
+    }
+  }
+
+  &--text {
+    background-color: transparent;
+    color: $primary-500;
+
+    &:hover:not(.button--text--disabled):not(.button--loading) {
+      background-color: $primary-50;
+    }
+
+    &:active:not(.button--text--disabled):not(.button--loading) {
+      background-color: $primary-100;
+    }
+  }
+
+  &--icon {
+    background-color: transparent;
+    color: $primary-500;
+
+    &:hover:not(.button--text--disabled):not(.button--loading) {
+      background-color: transparent;
+    }
+
+    &:active:not(.button--text--disabled):not(.button--loading) {
+      background-color: transparent;
+    }
+  }
+
+  &--sm {
+    padding: 0.2rem;
+    font-size: 0.875rem;
+    min-height: 32px;
+  }
+
+  &--md {
+    font-size: 1rem;
+    min-height: 40px;
+  }
+
+  &--lg {
+    padding: 0.6rem;
+    font-size: $font-button-large-size;
+    min-height: 48px;
+  }
+
+  &.button--primary--disabled,
+  &.button--primary.button--loading {
+    background-color: #dee2ee;
+    color: #9ea2ae;
+    cursor: not-allowed;
+  }
+
+  &.button--outline--disabled,
+  &.button--outline.button--loading {
+    border: 0.094rem solid #dee2ee;
+    color: #9ea2ae;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &.button--text--disabled,
+  &.button--text.button--loading {
+    color: #9ea2ae;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &--loading {
+    .button__content {
+      visibility: hidden;
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    margin: 0 0.5rem;
+    white-space: nowrap;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+
+    &--left {
+      margin-right: 0.7rem;
+    }
+
+    &--right {
+      margin-left: 0.7rem;
+    }
+  }
+
+  &__loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

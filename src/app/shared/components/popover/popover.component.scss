@@ -1,0 +1,88 @@
+@use "../../../styles/tokens/index" as *;
+
+:host {
+  display: contents;
+}
+
+$animation-duration: 0.12s;
+
+.popover-panel {
+  position: fixed;
+  z-index: 1000;
+  background-color: $white-900;
+  border-radius: 8px;
+  box-shadow: $shadow-500;
+  padding: 1rem;
+  max-height: 75vh;
+  overflow-y: auto;
+
+  &[data-placement="bottom"] {
+    animation: fadeInBottom $animation-duration ease-out;
+  }
+  &[data-placement="top"] {
+    animation: fadeInTop $animation-duration ease-out;
+  }
+  &[data-placement="left"] {
+    animation: fadeInLeft $animation-duration ease-out;
+  }
+  &[data-placement="right"] {
+    animation: fadeInRight $animation-duration ease-out;
+  }
+
+  &.is-closing {
+    animation: fadeOut $animation-duration ease-in;
+  }
+}
+
+@keyframes fadeInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInTop {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

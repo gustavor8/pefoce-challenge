@@ -1,0 +1,221 @@
+@use "../../../styles/tokens/colors" as *;
+
+:host {
+  display: block;
+  background-color: $primary-900;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1010;
+  box-sizing: border-box;
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &.expanded {
+    width: 260px;
+  }
+
+  &.collapsed {
+    width: 80px;
+  }
+
+  &.hidden {
+    width: 260px;
+    transform: translateX(-100%);
+  }
+}
+
+.menu-header + .menu-content {
+  margin-top: 0;
+}
+
+.menu-content {
+  flex-grow: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-top: 1rem;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 10px;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.3s ease-in-out;
+}
+
+:host(.collapsed:not(.hover-expanded)) .menu-content {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+:host(:hover) .menu-content {
+  scrollbar-color: $gray-500 transparent;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $gray-500;
+  }
+}
+
+:host(:hover) .menu-content::-webkit-scrollbar-thumb:hover {
+  background-color: $gray-600;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.menu-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
+  flex-shrink: 0;
+  height: 60px;
+}
+
+.menu-logo {
+  transition: height 0.45s cubic-bezier(0, 0, 0.2, 1),
+    transform 0.45s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.menu-title {
+  color: $gray-50;
+  font-size: 1.25rem;
+  font-weight: 600;
+  white-space: nowrap;
+  margin: 0;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.menu-footer {
+  flex-shrink: 0;
+  padding: 0.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  ul {
+    padding: 0 1rem;
+  }
+
+  li {
+    display: flex;
+  }
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: $gray-200;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+  text-align: start;
+
+  &:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.action-label {
+  min-width: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: opacity 0.2s ease-in-out 0.1s;
+}
+
+:host(.collapsed) {
+  .menu-header {
+    gap: 0;
+  }
+  .menu-logo {
+    transform: scale(0.75);
+    transform-origin: center;
+  }
+  .menu-title {
+    width: 0;
+    opacity: 0;
+  }
+  .animated-logo {
+    transform: rotate(-120deg) scale(0.75);
+    transform-origin: center;
+  }
+}
+
+:host(.collapsed:not(.hover-expanded)) {
+  .action-label {
+    opacity: 0;
+    width: 0;
+    transition: opacity 0.1s ease-in-out, width 0.1s ease-in-out;
+  }
+}
+
+:host(.collapsed.hover-expanded) {
+  width: 260px;
+
+  .menu-header {
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+
+  .menu-logo {
+    transform: scale(1);
+  }
+
+  .menu-title {
+    width: initial;
+    opacity: 1;
+    transition-delay: 0.1s;
+  }
+}
+
+.menu-backdrop-external {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1005;
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,48 @@
+<app-tabs tabindex="2">
+  <app-tab title="Consula Simples">
+    <form [formGroup]="searchForm" class="formFilter" (ngSubmit)="onSearch()">
+      <app-dropdown
+        [options]="searchOptions"
+        formControlName="searchType"
+        [label]="'Buscar por:'"
+      >
+      </app-dropdown>
+
+      @for(field of activeFields; track field.name){ @switch (field.type) {
+      @case ('dropdown') {
+      <app-dropdown
+        [label]="field.placeholder"
+        [formControlName]="field.name"
+        [options]="field.options || []"
+      >
+      </app-dropdown>
+      } @default {
+      <div class="container-input">
+        <app-text-input
+          [label]="field.placeholder"
+          [type]="field.type"
+          [id]="field.name"
+          [placeholder]="field.placeholder"
+          [formControlName]="field.name"
+        />
+      </div>
+
+      } } }
+
+      <footer>
+        <span class="space">.</span>
+        <app-button
+          type="submit"
+          [label]="'Buscar'"
+          [loading]="isLoading"
+          [disabled]="!searchForm.valid"
+          fullWidth
+        ></app-button>
+      </footer>
+    </form>
+  </app-tab>
+
+  <app-tab title="Consulta Avançada">
+    <h1>Lógica de consulta Avançada em desenvolvimento...</h1>
+  </app-tab>
+</app-tabs>

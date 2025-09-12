@@ -1,0 +1,14 @@
+<div [class]="'dashboard-container'">
+  <div class="main-chart">
+    <app-chart [config]="mainChart"></app-chart>
+  </div>
+  <div>
+    <div class="dashboard-container">
+      @for (chart of charts | keyvalue; track chart.key){
+      <div class="chart-item">
+        <app-chart [config]="chart.value"></app-chart>
+      </div>
+      }
+    </div>
+  </div>
+</div>

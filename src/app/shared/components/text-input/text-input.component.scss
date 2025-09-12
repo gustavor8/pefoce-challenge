@@ -1,0 +1,163 @@
+@use "../../../styles/tokens/colors" as *;
+
+:host {
+  display: block;
+}
+
+.text-input-wrapper {
+  position: relative;
+
+  .text-input-label {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: grey;
+  }
+
+  .input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid $gray-400;
+    height: 2.6rem;
+    border-radius: 0.5rem;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 0 0.75rem;
+  }
+
+  .input-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $neutral-500;
+    flex-shrink: 0;
+    transition: color 0.2s ease-in-out;
+
+    &.prefix-icon {
+      margin-right: 0.5rem;
+    }
+    &.suffix-icon {
+      margin-left: 0.5rem;
+    }
+  }
+
+  .suffix-button {
+    margin-left: 0.25rem;
+    margin-right: -0.5rem;
+  }
+
+  .text-input-field {
+    flex-grow: 1;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: $neutral-700;
+    background-color: transparent;
+    padding: 0.75rem 0;
+
+    &::placeholder {
+      color: $neutral-400;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0px 1000px $primary-50 inset !important;
+      -webkit-text-fill-color: $neutral-700 !important;
+    }
+  }
+
+  &.has-prefix-icon .input-container {
+    padding-left: 0.5rem;
+  }
+
+  &.has-suffix-content .input-container {
+    padding-right: 0.5rem;
+  }
+
+  &.focused .input-container {
+    border-color: $primary-500;
+    box-shadow: 0 0 0 2px rgba($primary-500, 0.4);
+  }
+
+  &.has-error .input-container {
+    border-color: $red-500;
+    box-shadow: none;
+  }
+
+  &.has-error.focused .input-container {
+    border-color: $red-500;
+    box-shadow: 0 0 0 2px $red-100;
+  }
+
+  .error-message {
+    color: $red-600;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    padding-left: 0.25rem;
+  }
+
+  &.is-readonly {
+    .input-container {
+      border-color: $gray-300;
+    }
+
+    &:hover .input-container {
+      border-color: $gray-700;
+    }
+
+    &.focused .input-container {
+      border-color: $gray-400;
+      box-shadow: none;
+    }
+  }
+
+  &.is-disabled {
+    opacity: 0.5;
+
+    .input-container {
+      cursor: not-allowed;
+
+      .text-input-field {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .meta-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.25rem 0.25rem 0;
+    font-size: 0.8rem;
+    min-height: 1.25rem;
+  }
+
+  .helper-text {
+    color: $neutral-500;
+    flex-grow: 1;
+  }
+
+  .char-counter {
+    color: $neutral-500;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+    text-align: right;
+  }
+}
+
+.text-input-field[type="number"] {
+  appearance: none;
+
+  -moz-appearance: textfield;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

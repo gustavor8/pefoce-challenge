@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+.app-container {
+  display: flex;
+}
+.main-content {
+  flex-grow: 1;
+  transition: margin-left 0.3s ease-in-out;
+  &.menu-expanded {
+    margin-left: 245px;
+  }
+  &.menu-collapsed {
+    margin-left: 80px;
+  }
+}
+.page-content {
+  padding: 5rem 2rem;
+}

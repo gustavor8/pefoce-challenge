@@ -1,0 +1,16 @@
+<div
+  class="chart-container"
+  [class]="'size-' + currentSize"
+  [attr.aria-label]="config.title || 'Chart'"
+  role="img"
+  tabindex="0"
+>
+  <canvas
+    baseChart
+    [data]="chartData"
+    [options]="chartOptions"
+    [type]="chartType"
+    [plugins]="plugins"
+  >
+  </canvas>
+</div>

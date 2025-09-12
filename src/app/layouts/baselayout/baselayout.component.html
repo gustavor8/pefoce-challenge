@@ -1,0 +1,25 @@
+<app-menu
+  [menuItems]="menuItems"
+  logoSrc="/assets/svgs/logo-galileu.svg"
+  logoText="Galileu"
+></app-menu>
+<main class="main-content" [ngClass]="mainContentClass()">
+  <app-header
+    [isMenuOpen]="isMenuExpanded()"
+    (menuButtonClick)="onHeaderMenuClick()"
+  >
+    <div slot="right">
+      <app-button
+        label="Sair"
+        [icon]="'logout'"
+        variant="text"
+        [color]="'gray'"
+        (onClick)="logout()"
+      />
+    </div>
+  </app-header>
+
+  <div class="page-content">
+    <router-outlet />
+  </div>
+</main>

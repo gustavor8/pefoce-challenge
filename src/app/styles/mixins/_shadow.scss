@@ -1,0 +1,17 @@
+@use "../tokens/variables" as *;
+
+@mixin shadow($level) {
+  box-shadow: map-get(
+    (
+      50: $shadow-50,
+      100: $shadow-100,
+      300: $shadow-300,
+      400: $shadow-400,
+      500: $shadow-500,
+      600: $shadow-600,
+      700: $shadow-700,
+      800: $shadow-800,
+    ),
+    $level
+  );
+}

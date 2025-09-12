@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+  <name>Pontos Turísticos - Fortaleza, CE</name>
+  <description>Principais pontos turísticos e áreas de interesse em Fortaleza, Ceará</description>
+  
+  <Style id="linha_costa">
+    <LineStyle>
+      <color>#ff0000</color>
+    </LineStyle>
+  </Style>
+  
+  <Style id="area_centro">
+    <PolyStyle>
+      <color>#4d0000</color>
+    </PolyStyle>
+  </Style>
+
+    <Placemark id="1">
+      <name>Caso 001 - Teatro José de Alencar</name>
+      <ExtendedData>
+        <Data name="id"><value>1</value></Data>
+        <Data name="caso"><value>001</value></Data>
+        <Data name="numeroMatch"><value>M001</value></Data>
+        <Data name="procedimento"><value>Furto Qualificado</value></Data>
+        <Data name="nomeVitima"><value>Maria da Silva</value></Data>
+        <Data name="dataNascimento"><value>1985-06-15</value></Data>
+        <Data name="maeVitima"><value>Ana da Silva</value></Data>
+        <Data name="dataOcorrencia"><value>2024-03-15</value></Data>
+        <Data name="localOcorrencia"><value>Teatro José de Alencar - Centro</value></Data>
+        <Data name="delegacia"><value>1ª Delegacia do Centro</value></Data>
+        <Data name="hasStreetView"><value>true</value></Data>
+        <Data name="position"><value>-3.7297,-38.5267</value></Data>
+      </ExtendedData>
+      <Point>
+        <coordinates>-38.5267,-3.7297,0</coordinates>
+      </Point>
+  </Placemark>
+
+  <Placemark id="2">
+    <name>Caso 002 - Mercado Central</name>
+    <ExtendedData>
+      <Data name="id"><value>2</value></Data>
+      <Data name="caso"><value>002</value></Data>
+      <Data name="numeroMatch"><value>M002</value></Data>
+      <Data name="procedimento"><value>Roubo a estabelecimento</value></Data>
+      <Data name="nomeVitima"><value>João Pereira</value></Data>
+      <Data name="dataNascimento"><value>1990-02-20</value></Data>
+      <Data name="maeVitima"><value>Maria Pereira</value></Data>
+      <Data name="dataOcorrencia"><value>2024-04-10</value></Data>
+      <Data name="localOcorrencia"><value>Mercado Central - Centro</value></Data>
+      <Data name="delegacia"><value>1ª Delegacia do Centro</value></Data>
+      <Data name="hasStreetView"><value>true</value></Data>
+      <Data name="position"><value>-3.7275,-38.5298</value></Data>
+    </ExtendedData>
+    <Point>
+      <coordinates>-38.5298,-3.7275,0</coordinates>
+    </Point>
+  </Placemark>
+
+  <Placemark id="3">
+    <name>Caso 003 - Praia de Iracema</name>
+    <ExtendedData>
+      <Data name="id"><value>3</value></Data>
+      <Data name="caso"><value>003</value></Data>
+      <Data name="numeroMatch"><value>M003</value></Data>
+      <Data name="procedimento"><value>Perturbação da ordem</value></Data>
+      <Data name="nomeVitima"><value>Carlos Silva</value></Data>
+      <Data name="dataNascimento"><value>1988-11-05</value></Data>
+      <Data name="maeVitima"><value>Ana Silva</value></Data>
+      <Data name="dataOcorrencia"><value>2024-05-02</value></Data>
+      <Data name="localOcorrencia"><value>Praia de Iracema</value></Data>
+      <Data name="delegacia"><value>2ª Delegacia da Praia</value></Data>
+      <Data name="hasStreetView"><value>true</value></Data>
+      <Data name="position"><value>-3.7198,-38.5089</value></Data>
+    </ExtendedData>
+    <Point>
+      <coordinates>-38.5089,-3.7198,0</coordinates>
+    </Point>
+  </Placemark>
+
+  <!-- LINHA DA COSTA -->
+  <Placemark id="linha_costa_fortaleza">
+    <name>Orla de Fortaleza</name>
+    <styleUrl>#linha_costa</styleUrl>
+    <ExtendedData>
+      <Data name="tipo">
+        <value>Orla Marítima</value>
+      </Data>
+      <Data name="extensao_km">
+        <value>15</value>
+      </Data>
+    </ExtendedData>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+        -38.4756,-3.7021,0
+        -38.4889,-3.7141,0
+        -38.5089,-3.7198,0
+        -38.5234,-3.7234,0
+        -38.5389,-3.7298,0
+        -38.5512,-3.7367,0
+        -38.5634,-3.7445,0
+        -38.5756,-3.7523,0
+      </coordinates>
+    </LineString>
+  </Placemark>
+
+  <!-- ÁREA DO CENTRO HISTÓRICO -->
+  <Placemark id="centro_historico">
+    <name>Centro Histórico de Fortaleza</name>
+    <styleUrl>#area_centro</styleUrl>
+    <ExtendedData>
+      <Data name="tipo">
+        <value>Área Histórica</value>
+      </Data>
+      <Data name="numero_monumentos">
+        <value>12</value>
+      </Data>
+      <Data name="ano_fundacao">
+        <value>1726</value>
+      </Data>
+      <Data name="patrimonio">
+        <value>true</value>
+      </Data>
+    </ExtendedData>
+    <Polygon>
+      <tessellate>1</tessellate>
+      <outerBoundaryIs>
+        <LinearRing>
+          <coordinates>
+            -38.5389,-3.7198,0
+            -38.5234,-3.7198,0
+            -38.5234,-3.7345,0
+            -38.5389,-3.7345,0
+            -38.5445,-3.7298,0
+            -38.5445,-3.7234,0
+            -38.5389,-3.7198,0
+          </coordinates>
+        </LinearRing>
+      </outerBoundaryIs>
+    </Polygon>
+  </Placemark>
+</Document>
+</kml>

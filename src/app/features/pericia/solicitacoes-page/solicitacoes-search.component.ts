@@ -123,20 +123,11 @@ export class SolicitacoesSearchComponent implements OnInit, OnDestroy {
     this.loadData(event.page, event.itemsPerPage);
   }
 
-  onSortChange(event: {
-    column: string;
-    direction: 'asc' | 'desc' | 'default';
-  }): void {
-    console.log('Ordenação:', event);
-    // Se sua API suportar ordenação, passe os parâmetros no service aqui
-  }
-
   onSelectionChange(selected: any[]): void {
     console.log('Selecionados:', selected);
   }
 
   ngOnDestroy(): void {
-    // Finaliza subscriptions para evitar vazamento
     this.destroy$.next();
     this.destroy$.complete();
   }

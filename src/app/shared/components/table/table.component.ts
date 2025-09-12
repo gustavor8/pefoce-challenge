@@ -296,7 +296,6 @@ export class TableComponent implements OnInit {
   }
 
   get selectedData() {
-    console.log(Array.from(this.selectedRows));
     return this.selectedRows;
   }
 }

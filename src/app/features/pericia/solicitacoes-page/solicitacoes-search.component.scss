@@ -3,3 +3,8 @@
   max-width: 100%;
   overflow: scroll;
 }
+.card-warapper {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

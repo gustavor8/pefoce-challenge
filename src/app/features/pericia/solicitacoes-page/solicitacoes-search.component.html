@@ -1,10 +1,21 @@
-<app-search-filters></app-search-filters>
-<div class="table-container">
-  <app-table
-    [data]="data"
-    [columns]="columns"
-    [actions]="actions"
-    (pageChange)="onPageChange($event)"
-    [totalItems]="totalItems"
-  ></app-table>
+<div class="card-warapper">
+  @for (card of cards; track $index) {
+  <app-tag-card
+    [title]="card.title"
+    [quantity]="card.quantity"
+    [iconClass]="card.iconClass"
+    [bgColor]="card.bgColor"
+  />
+  }
+
+  <app-search-filters></app-search-filters>
+  <div class="table-container">
+    <app-table
+      [data]="data"
+      [columns]="columns"
+      [actions]="actions"
+      (pageChange)="onPageChange($event)"
+      [totalItems]="totalItems"
+    ></app-table>
+  </div>
 </div>

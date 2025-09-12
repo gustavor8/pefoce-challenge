@@ -2,194 +2,194 @@
 @use "../../../styles/functions/rem" as *;
 @use "../../../styles/tokens/variables" as *;
 
-//
-// tables.scss
-//
 .table-container {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
+
+  .table-header {
     display: flex;
-    flex-direction: column;
-    gap: rem(16);
+    justify-content: right;
+    align-items: center;
+    gap: rem(12);
 
-    .table-header {
-        display: flex;
-        justify-content: right;
-        align-items: center;
-        gap: rem(12);
+    app-icon-button {
+      cursor: pointer;
+      color: $white-900;
 
-        app-icon-button {
+      &:hover {
+        color: $primary-600;
+      }
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: auto;
+    thead {
+      color: $white-900;
+      background-color: $primary-800;
+      tr th {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      tr > th:first-child {
+        padding: rem(12) rem(16) !important;
+        height: rem(40);
+        text-align: left;
+        width: fit-content;
+        max-width: 25px !important;
+        min-width: 25px !important;
+        font-size: $font-subtitle-s2-size;
+        font-weight: $font-subtitle-s2-weight;
+        overflow: hidden;
+        over .form-check .form-check-input {
+          appearance: none;
+          -webkit-appearance: none;
+          width: 16px;
+          height: 16px;
+          border: 1px solid $neutral-200;
+          border-radius: 2px;
+          background-color: white;
+          cursor: pointer;
+          margin: 0;
+          padding: 0;
+          position: relative;
+          transition: all 0.2s ease-in-out;
+
+          &:checked {
+            background-color: $primary-600;
+            border-color: $primary-600;
+
+            &::after {
+              content: "";
+              position: absolute;
+              top: 2px;
+              left: 5px;
+              width: 3px;
+              height: 8px;
+              border: solid white;
+              border-width: 0 2px 2px 0;
+              transform: rotate(45deg);
+            }
+          }
+        }
+      }
+
+      tr > th:not(:first-child) {
+        padding: rem(12) rem(16) !important;
+        height: rem(40);
+        max-width: 150px !important;
+        min-width: 150px !important;
+        font-size: $font-subtitle-s2-size;
+        font-weight: $font-subtitle-s2-weight;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid $gray-200;
+
+        &:hover {
+          background-color: #ececee;
+        }
+
+        td:first-child {
+          padding: rem(12) rem(16) !important;
+          text-align: left;
+          font-size: $font-body-b3-size;
+          font-weight: $font-body-b3-weight;
+          line-height: $font-body-b3-line-height;
+          color: $black-700;
+
+          height: 100%;
+
+          // &:first-child {
+          //     padding-left: rem(24) !important;
+          // }
+
+          .form-check .form-check-input {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 1px solid $neutral-200;
+            border-radius: 2px;
+            background-color: white;
             cursor: pointer;
-            color: $white-900;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            transition: all 0.2s ease-in-out;
 
-            &:hover {
-                color: $primary-600;
+            &:checked {
+              background-color: $primary-600;
+              border-color: $primary-600;
+
+              &::after {
+                content: "";
+                position: absolute;
+                top: 1px;
+                left: 5px;
+                width: 3px;
+                height: 8px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+              }
             }
+          }
         }
+
+        td:not(:first-child) {
+          padding: rem(12) rem(16) !important;
+          font-size: $font-body-b3-size;
+          font-weight: $font-body-b3-weight;
+          line-height: $font-body-b3-line-height;
+          color: $black-700;
+          text-align: center;
+          height: 100%;
+
+          &:first-child {
+            padding-left: rem(24) !important;
+          }
+
+          app-icon-button {
+            & + app-icon-button {
+              margin-left: rem(5) !important;
+            }
+          }
+        }
+
+        &:nth-child(even) {
+          background-color: #f2f2f2;
+        }
+        &.table-row-selected {
+          background: $primary-50;
+        }
+      }
     }
 
-    table {
-        border-collapse: collapse;
-        width: 100%;
-
-
-        thead {
-            color: $white-900;
-            background-color: $primary-800;
-
-            tr>th:first-child {
-                padding: rem(12) rem(16) !important;
-                height: rem(40);
-                max-width: 20px !important;
-                min-width: 20px !important;
-                font-size: $font-subtitle-s2-size;
-                font-weight: $font-subtitle-s2-weight;
-
-                .form-check .form-check-input {
-                    appearance: none;
-                    -webkit-appearance: none;
-                    width: 16px;
-                    height: 16px;
-                    border: 1px solid $neutral-200;
-                    border-radius: 2px;
-                    background-color: white;
-                    cursor: pointer;
-                    margin: 0;
-                    padding: 0;
-                    position: relative;
-                    transition: all 0.2s ease-in-out;
-
-                    &:checked {
-                        background-color: $primary-600; // substitua por #1666eb ou similar se quiser cor fixa
-                        border-color: $primary-600;
-
-                        &::after {
-                            content: "";
-                            position: absolute;
-                            top: 2px;
-                            left: 5px;
-                            width: 3px;
-                            height: 8px;
-                            border: solid white;
-                            border-width: 0 2px 2px 0;
-                            transform: rotate(45deg);
-                        }
-                    }
-                }
-            }
-
-            tr>th:not(:first-child) {
-                padding: rem(12) rem(16) !important;
-                height: rem(40);
-                max-width: 150px !important;
-                min-width: 150px !important;
-                font-size: $font-subtitle-s2-size;
-                font-weight: $font-subtitle-s2-weight;
-            }
-        }
-
-        tbody {
-            tr {
-                border-bottom: 1px solid $gray-200;
-
-                &:hover {
-                    background-color: #ECECEE;
-                }
-
-                td:first-child {
-                    padding: rem(12) rem(16) !important;
-                    font-size: $font-body-b3-size;
-                    font-weight: $font-body-b3-weight;
-                    line-height: $font-body-b3-line-height;
-                    color: $black-700;
-                    text-align: center;
-                    height: 100%;
-
-                    // &:first-child {
-                    //     padding-left: rem(24) !important;
-                    // }
-
-                    .form-check .form-check-input {
-                        appearance: none;
-                        -webkit-appearance: none;
-                        width: 16px;
-                        height: 16px;
-                        border: 1px solid $neutral-200;
-                        border-radius: 2px;
-                        background-color: white;
-                        cursor: pointer;
-                        margin: 0;
-                        padding: 0;
-                        position: relative;
-                        transition: all 0.2s ease-in-out;
-
-                        &:checked {
-                            background-color: $primary-600;
-                            border-color: $primary-600;
-
-                            &::after {
-                                content: "";
-                                position: absolute;
-                                top: 1px;
-                                left: 5px;
-                                width: 3px;
-                                height: 8px;
-                                border: solid white;
-                                border-width: 0 2px 2px 0;
-                                transform: rotate(45deg);
-                            }
-                        }
-                    }
-                }
-
-                td:not(:first-child) {
-                    padding: rem(12) rem(16) !important;
-                    font-size: $font-body-b3-size;
-                    font-weight: $font-body-b3-weight;
-                    line-height: $font-body-b3-line-height;
-                    color: $black-700;
-                    text-align: center;
-                    height: 100%;
-
-                    // &:first-child {
-                    //     padding-left: rem(24) !important;
-                    // }
-
-                    app-icon-button {
-                        &+app-icon-button {
-                            margin-left: rem(5) !important;
-                        }
-                    }
-
-                }
-
-                // &:nth-child(even) {
-                //     background-color: #f2f2f2;
-                // }
-                &.table-row-selected {
-                    background: $primary-50;
-                }
-            }
-        }
-
-        th {
-            font-weight: 400;
-        }
-
-        // Table centered
-        .table-centered {
-
-            td,
-            th {
-                vertical-align: middle !important;
-            }
-        }
-
-        // Table
-        .table-nowrap {
-
-            th,
-            td {
-                white-space: nowrap;
-            }
-        }
+    th {
+      font-weight: 400;
     }
+
+    // Table centered
+    .table-centered {
+      td,
+      th {
+        vertical-align: middle !important;
+      }
+    }
+
+    // Table
+    .table-nowrap {
+      th,
+      td {
+        white-space: nowrap;
+      }
+    }
+  }
 }

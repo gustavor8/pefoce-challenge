@@ -77,27 +77,7 @@
           </td>
           <td *ngFor="let column of visibleColumns">
             <ng-container [ngSwitch]="column.type">
-              <p>onde ficava o profile</p>
-              <app-badge
-                *ngSwitchCase="'badge'"
-                [type]="
-                  getCellValue(item, {
-                    key: column.badgeConfig?.typeKey || column.key,
-                    label: ''
-                  })
-                "
-              >
-                {{
-                  getCellValue(item, {
-                    key: column.badgeConfig?.valueKey || column.key,
-                    label: ""
-                  })
-                }}
-              </app-badge>
-
-              <span *ngSwitchDefault>
-                {{ getCellValue(item, column) }}
-              </span>
+              {{ getCellValue(item, column) }}
             </ng-container>
           </td>
 
@@ -136,7 +116,7 @@
     <app-pagination
       [page]="page"
       [itemsPerPage]="itemsPerPage"
-      [collectionSize]="data.length"
+      [collectionSize]="totalItems"
       [pageSizes]="config.pageSizes || [10, 20, 50, 100]"
       (pageChange)="onPageChangeInternal($event)"
       (itemsPerPageChange)="onItemsPerPageChange($event)"

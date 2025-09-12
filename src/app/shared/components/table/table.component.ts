@@ -59,7 +59,6 @@ export interface TableConfig {
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    BadgeComponent,
     PaginationComponent,
     IconButtonComponent,
     DropdownComponent,
@@ -83,7 +82,7 @@ export class TableComponent implements OnInit {
     pageSizes: [10, 20, 50, 100],
     defaultPageSize: 10,
   };
-
+  @Input() totalItems: number = 0;
   @Output() selectedRowsChange = new EventEmitter<any[]>();
   @Output() sortChange = new EventEmitter<{
     column: string;
@@ -237,7 +236,7 @@ export class TableComponent implements OnInit {
       });
     }
 
-    return sorted.slice(start, end);
+    return sorted;
   }
 
   private getNestedValue(obj: any, path: string): any {

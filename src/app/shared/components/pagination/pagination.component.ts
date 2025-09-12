@@ -1,16 +1,21 @@
-import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
-import { DropdownComponent } from '../dropdown/dropdown.component';
 
 @Component({
   selector: 'app-pagination',
   standalone: true,
-  imports: [CommonModule, NgbPaginationModule, DropdownComponent],
+  imports: [CommonModule, NgbPaginationModule],
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class PaginationComponent {
   @Input() page = 1;

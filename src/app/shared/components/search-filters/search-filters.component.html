@@ -31,7 +31,13 @@
 
       <footer>
         <span class="space">.</span>
-        <app-button label="Buscar" type="submit" variant="primary" />
+        <app-button
+          type="submit"
+          [label]="'Buscar'"
+          [loading]="isLoading"
+          [disabled]="!searchForm.valid"
+          fullWidth
+        ></app-button>
       </footer>
     </form>
   </app-tab>

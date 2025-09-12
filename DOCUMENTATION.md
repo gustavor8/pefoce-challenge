@@ -1,72 +1,11 @@
-# 📘 Documentação Completa do Sistema
+# Documentação do Projeto
 
 ## Visão Geral
-
-Este projeto é uma aplicação Angular estruturada com diversas funcionalidades, incluindo autenticação, layouts, componentes compartilhados e páginas específicas. Ele segue uma arquitetura modular para facilitar a escalabilidade e manutenção. Foi desenvolvido oriundo de um desafio da Pericia Forense do Estado do Ceará para concorrer a vaga de Desenvolvedor Pleno.
-
----
-
-## 🔧 Tecnologias e Versões
-
-- **Framework**: Angular Versão: 19.2.15
-- **Node.js**: v23.3.0
-- **NPM**:10.9.0
-- **IDE**: VSCode
+Este projeto é uma aplicação Angular estruturada com diversas funcionalidades, incluindo autenticação, layouts, componentes compartilhados e páginas específicas. Ele segue uma arquitetura modular para facilitar a escalabilidade e manutenção.
 
 ---
 
-## 🛠️ Como Usar
-
-### Pré-requisitos
-
-- Instalar o [Node.js](https://nodejs.org/) (versão recomendada: v23.3.0 )
-- Instalar o [Angular CLI](https://angular.io/cli) globalmente:
-
-```bash
-npm install -g @angular/cli
-```
-
-### Passos para Execução
-
-1. **Clonar o Repositório**
-
-````bash
-git clone https://github.com/gustavor8/pefoce-challenge.git```
-````
-
-2. **Acessar o repósitorio**
-
-```bash
-cd pefoce-challenge
-```
-
-Se preferir pode abrir o projeto direto com a IDE.
-
-3. **Instalar Dependências**
-
-````bash
-npm install```
-4. **Iniciar o Servidor de Desenvolvimento**
-Para iniciar o servidor de desenvolvimento, execute o seguinte comando no seu terminal:
-
-```bash
-ng serve
-````
-
-5. **Acessar a Aplicação**
-   Após iniciar o servidor, abra seu navegador e acesse a seguinte URL:
-
-[http://localhost:4200/](http://localhost:4200/)
-
-A aplicação será recarregada automaticamente sempre que você modificar os arquivos de origem.
-
----
-
-6. **Iniciar o Servidor Back-end**
-
-Irei deixar no projeto também o back-end, ressalvando que este não foi criado por mim, mas sim por Ênio Viana. Todas as intruções para o back-end são dadas através do arquivo do Insominia que está contemplato na pasta do supracitado servidor.
-
-## 📁 Estrutura de Diretórios
+## Estrutura do Projeto
 
 Abaixo está a estrutura principal do projeto:
 
@@ -192,9 +131,48 @@ src/
 
 ---
 
+## Tecnologias Utilizadas
+
+- **Angular**: Framework principal para desenvolvimento da aplicação.
+- **TypeScript**: Linguagem utilizada para desenvolvimento.
+- **SCSS**: Pré-processador CSS para estilização.
+- **HTML**: Linguagem de marcação para estruturação das páginas.
+
+---
+
+## Requisitos de Sistema
+
+- **Node.js**: Versão 16 ou superior.
+- **NPM**: Versão 8 ou superior.
+- **Angular CLI**: Versão 14 ou superior.
+
+---
+
+## Passos para Execução
+
+1. **Clone o repositório**:
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
+   ```
+
+2. **Instale as dependências**:
+   ```bash
+   npm install
+   ```
+
+3. **Inicie o servidor de desenvolvimento**:
+   ```bash
+   npm start
+   ```
+
+4. **Acesse a aplicação**:
+   Abra o navegador e acesse `http://localhost:4200`.
+
+---
+
 ## Estrutura Modular
 
-- **Core**: Contém serviços, guards, modelos e interceptadores.
+- **Core**: Contém serviços, guardas e interceptadores.
 - **Features**: Funcionalidades específicas da aplicação.
 - **Shared**: Componentes e diretivas reutilizáveis.
 - **Layouts**: Estruturas de layout da aplicação.
@@ -202,46 +180,5 @@ src/
 
 ---
 
-## 🧪 Testes
-
-O projeto está configurado com ferramentas para testes unitários e de ponta a ponta (e2e).
-
-#### Testes Unitários
-
-Para rodar os testes unitários via Karma e Jasmine:
-
-```bash
-ng test
-```
-
-#### Testes de Ponta a Ponta (E2E)
-
-Para rodar os testes de ponta a ponta (end-to-end):
-
-```bash
-ng e2e
-```
-
----
-
-## 🔄 Scripts Disponíveis
-
-Você pode usar os seguintes scripts definidos no `package.json` com `npm run <script>` ou diretamente com `ng`:
-
-- `ng serve`: Inicia o servidor de desenvolvimento.
-- `ng test`: Executa os testes unitários.
-- `ng e2e`: Executa os testes de ponta a ponta.
-- `ng lint`: Analisa o código em busca de problemas de estilo e erros.
-- `ng build`: Compila a aplicação para um ambiente de produção. O resultado fica na pasta `dist/`.
-
----
-
-## 📄 Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
-
----
-
-## 👤 Criado por
-
-Gustavo Rodrigues
+## Contato
+Para dúvidas ou suporte, entre em contato com o desenvolvedor principal.
